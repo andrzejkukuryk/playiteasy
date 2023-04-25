@@ -1,8 +1,7 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import { ListItem } from "./listItem";
-import { RootState } from "../../store/store";
-// import { songs } from "../../dummyData/songs";
+import { RootState } from "../../../store/store";
 import { useSelector } from "react-redux";
 
 export function SheetList() {
