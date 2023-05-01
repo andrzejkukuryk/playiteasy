@@ -1,8 +1,31 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../../../store/store";
+import {
+  addDifficulty,
+  filterByDifficulty,
+} from "../../../../store/songsSlice";
 import { Form } from "react-bootstrap";
 import { DifficultyStars } from "../../../../components/difficultyStars";
 
 export function Filters() {
+  const checked = useSelector(
+    (state: RootState) => state.songs.filterDifficulty
+  );
+  const dispatch = useDispatch();
+
+  const chechCheched = (diff: number) => {
+    if (checked.includes(diff)) {
+      return true;
+    }
+    return false;
+  };
+
+  const handleChange = (diff: number) => {
+    dispatch(addDifficulty(diff));
+    dispatch(filterByDifficulty());
+  };
+
   return (
     <div>
       <p>Choose difficulty:</p>
@@ -10,26 +33,36 @@ export function Filters() {
         <Form.Check
           type="checkbox"
           id="1star"
+          checked={chechCheched(1)}
+          onChange={() => handleChange(1)}
           label={<DifficultyStars difficulty={1} />}
         />
         <Form.Check
           type="checkbox"
           id="2star"
+          checked={chechCheched(2)}
+          onChange={() => handleChange(2)}
           label={<DifficultyStars difficulty={2} />}
         />
         <Form.Check
           type="checkbox"
           id="3star"
+          checked={chechCheched(3)}
+          onChange={() => handleChange(3)}
           label={<DifficultyStars difficulty={3} />}
         />
         <Form.Check
           type="checkbox"
           id="4star"
+          checked={chechCheched(4)}
+          onChange={() => handleChange(4)}
           label={<DifficultyStars difficulty={4} />}
         />
         <Form.Check
           type="checkbox"
           id="5star"
+          checked={chechCheched(5)}
+          onChange={() => handleChange(5)}
           label={<DifficultyStars difficulty={5} />}
         />
       </Form>

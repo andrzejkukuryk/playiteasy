@@ -22,10 +22,13 @@ export function ListItem({ number, song }: ListItemProps) {
         </td>
       </tr>
       <tr className="collapse" id={`collapseLinks${number}`}>
-        <td></td>
-        <td>{song.notes}</td>
-        <td>{song.tabs}</td>
-        <td>{song.video}</td>
+        <td colSpan={4}>
+          <div className="d-flex justify-content-around">
+            <p>{song.notes}</p>
+            <p>{song.tabs}</p>
+            <p>{song.video}</p>
+          </div>
+        </td>
       </tr>
     </>
   );
