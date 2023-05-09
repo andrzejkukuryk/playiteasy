@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { search } from "../../../../store/songsSlice";
+import { updateSearchQuery } from "../../../../store/songsSlice";
 
 export function TextInput() {
   const [searchPhrase, setSearchPhrase] = useState("");
@@ -9,7 +9,7 @@ export function TextInput() {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    dispatch(search(searchPhrase));
+    dispatch(updateSearchQuery(searchPhrase));
   };
   return (
     <Form onSubmit={handleSubmit}>

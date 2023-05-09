@@ -5,17 +5,19 @@ import { RootState } from "../../../store/store";
 import { useSelector, useDispatch } from "react-redux";
 import {
   loadSongs,
-  sortArtistAZ,
-  sortArtistZA,
-  sortTitleAZ,
-  sortTitleZA,
-  sortDifficulty15,
-  sortDifficulty51,
+  updateSortType,
+  // sortArtistAZ,
+  // sortArtistZA,
+  // sortTitleAZ,
+  // sortTitleZA,
+  // sortDifficulty15,
+  // sortDifficulty51,
 } from "../../../store/songsSlice";
+import { filteredSongsSelector } from "../../../store/selectors";
 import { songs as dummySongs } from "../../../dummyData/songs";
 
 export function SheetList() {
-  const songs = useSelector((state: RootState) => state.songs.currentSongs);
+  const songs = useSelector(filteredSongsSelector);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,27 +31,27 @@ export function SheetList() {
   };
 
   const handleSortArtistAZ = () => {
-    dispatch(sortArtistAZ());
+    dispatch(updateSortType("sortArtistAZ"));
   };
 
   const handleSortArtistZA = () => {
-    dispatch(sortArtistZA());
+    dispatch(updateSortType("sortArtistZA"));
   };
 
   const handleSortTitleAZ = () => {
-    dispatch(sortTitleAZ());
+    dispatch(updateSortType("sortTitleAZ"));
   };
 
   const handleSortTitleZA = () => {
-    dispatch(sortTitleZA());
+    dispatch(updateSortType("sortTitleZA"));
   };
 
   const handleSortDifficulty15 = () => {
-    dispatch(sortDifficulty15());
+    dispatch(updateSortType("sortDifficulty15"));
   };
 
   const handleSortDifficulty51 = () => {
-    dispatch(sortDifficulty51());
+    dispatch(updateSortType("sortDifficulty51"));
   };
 
   return (

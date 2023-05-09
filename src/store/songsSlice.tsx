@@ -8,12 +8,24 @@ interface SongsState {
   allSongs: SongInfo[];
   currentSongs: SongInfo[];
   filterDifficulty: number[];
+  searchQuery: string;
+  sortType: SortType;
 }
+
+export type SortType =
+  | "sortArtistAZ"
+  | "sortArtistZA"
+  | "sortTitleAZ"
+  | "sortTitleZA"
+  | "sortDifficulty15"
+  | "sortDifficulty51";
 
 const initialState: SongsState = {
   allSongs: songs,
   currentSongs: [],
   filterDifficulty: [1, 2, 3, 4, 5],
+  searchQuery: "",
+  sortType: "sortArtistAZ",
 };
 
 export const songsSlice = createSlice({
@@ -24,90 +36,11 @@ export const songsSlice = createSlice({
       state.allSongs = action.payload;
       state.currentSongs = action.payload;
     },
-    search: (state, action: PayloadAction<string>) => {
-      state.currentSongs = state.allSongs.filter(
-        (song) =>
-          song.artist.toLowerCase().includes(action.payload.toLowerCase()) ||
-          song.title.toLowerCase().includes(action.payload.toLowerCase())
-      );
+    updateSearchQuery: (state, action: PayloadAction<string>) => {
+      state.searchQuery = action.payload;
     },
-    sortArtistAZ: (state) => {
-      state.currentSongs = state.currentSongs.sort((a, b) => {
-        const artistA = a.artist.toLowerCase();
-        const artistB = b.artist.toLowerCase();
-        if (artistA < artistB) {
-          return -1;
-        }
-        if (artistA > artistB) {
-          return 1;
-        }
-        return 0;
-      });
-    },
-    sortArtistZA: (state) => {
-      state.currentSongs = state.currentSongs.sort((a, b) => {
-        const artistA = a.artist.toLowerCase();
-        const artistB = b.artist.toLowerCase();
-        if (artistA < artistB) {
-          return 1;
-        }
-        if (artistA > artistB) {
-          return -1;
-        }
-        return 0;
-      });
-    },
-    sortTitleAZ: (state) => {
-      state.currentSongs = state.currentSongs.sort((a, b) => {
-        const titleA = a.title.toLowerCase();
-        const titleB = b.title.toLowerCase();
-        if (titleA < titleB) {
-          return -1;
-        }
-        if (titleA > titleB) {
-          return 1;
-        }
-        return 0;
-      });
-    },
-    sortTitleZA: (state) => {
-      state.currentSongs = state.currentSongs.sort((a, b) => {
-        const titleA = a.title.toLowerCase();
-        const titleB = b.title.toLowerCase();
-        if (titleA < titleB) {
-          return 1;
-        }
-        if (titleA > titleB) {
-          return -1;
-        }
-        return 0;
-      });
-    },
-    sortDifficulty15: (state) => {
-      state.currentSongs = state.currentSongs.sort((a, b) => {
-        const songA = a.difficulty;
-        const songB = b.difficulty;
-        if (songA < songB) {
-          return -1;
-        }
-        if (songA > songB) {
-          return 1;
-        }
-        return 0;
-      });
-    },
-    sortDifficulty51: (state) => {
-      state.currentSongs = state.currentSongs.sort((a, b) => {
-        const songA = a.difficulty;
-        const songB = b.difficulty;
-        if (songA < songB) {
-          return 1;
-        }
-        if (songA > songB) {
-          return -1;
-        }
-        return 0;
-      });
+    updateSortType: (state, action: PayloadAction<SortType>) => {
+      state.sortType = action.payload;
     },
     addDifficulty: (state, action: PayloadAction<number>) => {
       if (state.filterDifficulty.includes(action.payload)) {
@@ -120,26 +53,11 @@ export const songsSlice = createSlice({
       state.filterDifficulty.sort();
       return state;
     },
-    filterByDifficulty: (state) => {
-      state.currentSongs = state.allSongs.filter((song) =>
-        state.filterDifficulty.includes(song.difficulty)
-      );
-    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {
-  loadSongs,
-  search,
-  sortArtistAZ,
-  sortArtistZA,
-  sortTitleAZ,
-  sortTitleZA,
-  sortDifficulty15,
-  sortDifficulty51,
-  addDifficulty,
-  filterByDifficulty,
-} = songsSlice.actions;
+export const { loadSongs, updateSearchQuery, updateSortType, addDifficulty } =
+  songsSlice.actions;
 
 export default songsSlice.reducer;

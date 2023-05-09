@@ -1,17 +1,12 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../../../store/store";
-import {
-  addDifficulty,
-  filterByDifficulty,
-} from "../../../../store/songsSlice";
+import { difficultyFiltersSelector } from "../../../../store/selectors";
+import { addDifficulty } from "../../../../store/songsSlice";
 import { Form } from "react-bootstrap";
 import { DifficultyStars } from "../../../../components/difficultyStars";
 
 export function Filters() {
-  const checked = useSelector(
-    (state: RootState) => state.songs.filterDifficulty
-  );
+  const checked = useSelector(difficultyFiltersSelector);
   const dispatch = useDispatch();
 
   const chechCheched = (diff: number) => {
@@ -23,7 +18,6 @@ export function Filters() {
 
   const handleChange = (diff: number) => {
     dispatch(addDifficulty(diff));
-    dispatch(filterByDifficulty());
   };
 
   return (
