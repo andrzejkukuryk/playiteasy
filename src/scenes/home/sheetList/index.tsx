@@ -1,23 +1,17 @@
 import React, { useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { ListItem } from "./listItem";
-import { RootState } from "../../../store/store";
 import { useSelector, useDispatch } from "react-redux";
+import { loadSongs, updateSortType } from "../../../store/songsSlice";
 import {
-  loadSongs,
-  updateSortType,
-  // sortArtistAZ,
-  // sortArtistZA,
-  // sortTitleAZ,
-  // sortTitleZA,
-  // sortDifficulty15,
-  // sortDifficulty51,
-} from "../../../store/songsSlice";
-import { filteredSongsSelector } from "../../../store/selectors";
+  filteredSongsSelector,
+  expendedRecordsSelector,
+} from "../../../store/selectors";
 import { songs as dummySongs } from "../../../dummyData/songs";
 
 export function SheetList() {
   const songs = useSelector(filteredSongsSelector);
+  const expended = useSelector(expendedRecordsSelector);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -53,6 +47,7 @@ export function SheetList() {
   const handleSortDifficulty51 = () => {
     dispatch(updateSortType("sortDifficulty51"));
   };
+  console.log(expended, songs);
 
   return (
     <Table striped bordered>

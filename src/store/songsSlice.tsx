@@ -6,10 +6,10 @@ import { songs } from "../dummyData/songs";
 
 interface SongsState {
   allSongs: SongInfo[];
-  currentSongs: SongInfo[];
   filterDifficulty: number[];
   searchQuery: string;
   sortType: SortType;
+  expendedRecords: string[];
 }
 
 export type SortType =
@@ -22,10 +22,10 @@ export type SortType =
 
 const initialState: SongsState = {
   allSongs: songs,
-  currentSongs: [],
   filterDifficulty: [1, 2, 3, 4, 5],
   searchQuery: "",
   sortType: "sortArtistAZ",
+  expendedRecords: [],
 };
 
 export const songsSlice = createSlice({
@@ -34,7 +34,6 @@ export const songsSlice = createSlice({
   reducers: {
     loadSongs: (state, action: PayloadAction<SongInfo[]>) => {
       state.allSongs = action.payload;
-      state.currentSongs = action.payload;
     },
     updateSearchQuery: (state, action: PayloadAction<string>) => {
       state.searchQuery = action.payload;
@@ -53,11 +52,25 @@ export const songsSlice = createSlice({
       state.filterDifficulty.sort();
       return state;
     },
+    updateExpendedRecords: (state, action: PayloadAction<string>) => {
+      if (state.expendedRecords.includes(action.payload)) {
+        state.expendedRecords = state.expendedRecords.filter(
+          (record) => record !== action.payload
+        );
+      } else {
+        state.expendedRecords.push(action.payload);
+      }
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { loadSongs, updateSearchQuery, updateSortType, addDifficulty } =
-  songsSlice.actions;
+export const {
+  loadSongs,
+  updateSearchQuery,
+  updateSortType,
+  addDifficulty,
+  updateExpendedRecords,
+} = songsSlice.actions;
 
 export default songsSlice.reducer;

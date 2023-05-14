@@ -107,3 +107,8 @@ export const filteredSongsSelector = (state: RootState): SongInfo[] => {
 export const difficultyFiltersSelector = (state: RootState) => {
   return state.songs.filterDifficulty;
 };
+
+export const expendedRecordsSelector = (state: RootState) => {
+  return state.songs.expendedRecords;
+};
+ 
