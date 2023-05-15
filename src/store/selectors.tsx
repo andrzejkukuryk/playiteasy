@@ -111,4 +111,7 @@ export const difficultyFiltersSelector = (state: RootState) => {
 export const expendedRecordsSelector = (state: RootState) => {
   return state.songs.expendedRecords;
 };
- 
+
+export const sortTypeSelector = (state: RootState) => {
+  return state.songs.sortType;
+};
