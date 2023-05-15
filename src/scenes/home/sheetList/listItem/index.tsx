@@ -2,7 +2,9 @@ import React from "react";
 import { SongInfo } from "../../../../models/songInfo";
 import { DifficultyStars } from "../../../../components/difficultyStars";
 import { updateExpendedRecords } from "../../../../store/songsSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { expendedRecordsSelector } from "../../../../store/selectors";
+import classNames from "classnames";
 
 interface ListItemProps {
   number: number;
@@ -11,6 +13,7 @@ interface ListItemProps {
 
 export function ListItem({ number, song }: ListItemProps) {
   const dispatch = useDispatch();
+  const expendedRecords = useSelector(expendedRecordsSelector);
 
   const handleClick = (id: string) => {
     dispatch(updateExpendedRecords(id));
@@ -22,6 +25,11 @@ export function ListItem({ number, song }: ListItemProps) {
   )}${song.title.replace(/[^A-Za-z]/g, "")}`;
 
   const collapseTarget = `#${collapseId}`;
+
+  const trClass = classNames({
+    "collapse show": expendedRecords.includes(collapseId),
+    collapse: !expendedRecords.includes(collapseId),
+  });
 
   return (
     <>
@@ -40,7 +48,7 @@ export function ListItem({ number, song }: ListItemProps) {
           <DifficultyStars difficulty={song.difficulty} />
         </td>
       </tr>
-      <tr className="collapse show" id={collapseId}>
+      <tr className={trClass} id={collapseId}>
         <td colSpan={4}>
           <div className="d-flex justify-content-around">
             <p>{song.notes}</p>
