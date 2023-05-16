@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { ListItem } from "./listItem";
 import { useSelector, useDispatch } from "react-redux";
-import { loadSongs, updateSortType } from "../../../store/songsSlice";
+import { SortType, loadSongs, updateSortType } from "../../../store/songsSlice";
 import {
   filteredSongsSelector,
   sortTypeSelector,
@@ -13,13 +13,11 @@ import { ReactComponent as BiSortAZ } from "../../../assets/bi-sortAZ.svg";
 import { ReactComponent as BiSortZA } from "../../../assets/bi-sortZA.svg";
 import { ReactComponent as BiSort15 } from "../../../assets/bi-sort15.svg";
 import { ReactComponent as BiSort51 } from "../../../assets/bi-sort51.svg";
-import "./style.css";
-import classNames from "classnames";
+import { SortButton } from "./sortButton";
 
 export function SheetList() {
   const songs = useSelector(filteredSongsSelector);
-  const sortType = useSelector(sortTypeSelector);
-  // const expended = useSelector(expendedRecordsSelector);
+  const activeSortType = useSelector(sortTypeSelector);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,59 +30,9 @@ export function SheetList() {
     ));
   };
 
-  const handleSortArtistAZ = () => {
-    dispatch(updateSortType("sortArtistAZ"));
+  const handleClick = (sortType: SortType) => {
+    dispatch(updateSortType(sortType));
   };
-
-  const handleSortArtistZA = () => {
-    dispatch(updateSortType("sortArtistZA"));
-  };
-
-  const handleSortTitleAZ = () => {
-    dispatch(updateSortType("sortTitleAZ"));
-  };
-
-  const handleSortTitleZA = () => {
-    dispatch(updateSortType("sortTitleZA"));
-  };
-
-  const handleSortDifficulty15 = () => {
-    dispatch(updateSortType("sortDifficulty15"));
-  };
-
-  const handleSortDifficulty51 = () => {
-    dispatch(updateSortType("sortDifficulty51"));
-  };
-
-  const buttonArtistAZClass = classNames({
-    "btn btn-link p-0 activeSort": sortType === "sortArtistAZ",
-    "btn btn-link p-0 inactiveSort": sortType !== "sortArtistAZ",
-  });
-
-  const buttonArtistZAClass = classNames({
-    "btn btn-link p-0 activeSort": sortType === "sortArtistZA",
-    "btn btn-link p-0 inactiveSort": sortType !== "sortArtistZA",
-  });
-
-  const buttonTitleAZClass = classNames({
-    "btn btn-link p-0 activeSort": sortType === "sortTitleAZ",
-    "btn btn-link p-0 inactiveSort": sortType !== "sortTitleAZ",
-  });
-
-  const buttonTitleZAClass = classNames({
-    "btn btn-link p-0 activeSort": sortType === "sortTitleZA",
-    "btn btn-link p-0 inactiveSort": sortType !== "sortTitleZA",
-  });
-
-  const buttonDifficulty15Class = classNames({
-    "btn btn-link p-0 activeSort": sortType === "sortDifficulty15",
-    "btn btn-link p-0 inactiveSort": sortType !== "sortDifficulty15",
-  });
-
-  const buttonDifficulty51Class = classNames({
-    "btn btn-link p-0 activeSort": sortType === "sortDifficulty51",
-    "btn btn-link p-0 inactiveSort": sortType !== "sortDifficulty51",
-  });
 
   return (
     <Table striped bordered>
@@ -92,55 +40,55 @@ export function SheetList() {
         <tr>
           <th>#</th>
           <th>
-            Artist{" "}
-            <button
-              type="button"
-              className={buttonArtistAZClass}
-              onClick={handleSortArtistAZ}
+            Artist
+            <SortButton
+              activeSortType={activeSortType}
+              sortType="sortArtistAZ"
+              handleClick={handleClick}
             >
               <BiSortAZ />
-            </button>{" "}
-            <button
-              type="button"
-              className={buttonArtistZAClass}
-              onClick={handleSortArtistZA}
+            </SortButton>
+            <SortButton
+              activeSortType={activeSortType}
+              sortType="sortArtistZA"
+              handleClick={handleClick}
             >
               <BiSortZA />
-            </button>{" "}
+            </SortButton>
           </th>
           <th>
-            Title{" "}
-            <button
-              type="button"
-              className={buttonTitleAZClass}
-              onClick={handleSortTitleAZ}
+            Title
+            <SortButton
+              activeSortType={activeSortType}
+              sortType="sortTitleAZ"
+              handleClick={handleClick}
             >
               <BiSortAZ />
-            </button>{" "}
-            <button
-              type="button"
-              className={buttonTitleZAClass}
-              onClick={handleSortTitleZA}
+            </SortButton>
+            <SortButton
+              activeSortType={activeSortType}
+              sortType="sortTitleZA"
+              handleClick={handleClick}
             >
               <BiSortZA />
-            </button>{" "}
+            </SortButton>
           </th>
           <th>
             Difficulty
-            <button
-              type="button"
-              className={buttonDifficulty15Class}
-              onClick={handleSortDifficulty15}
+            <SortButton
+              activeSortType={activeSortType}
+              sortType="sortDifficulty15"
+              handleClick={handleClick}
             >
               <BiSort15 />
-            </button>{" "}
-            <button
-              type="button"
-              className={buttonDifficulty51Class}
-              onClick={handleSortDifficulty51}
+            </SortButton>
+            <SortButton
+              activeSortType={activeSortType}
+              sortType="sortDifficulty51"
+              handleClick={handleClick}
             >
               <BiSort51 />
-            </button>
+            </SortButton>
           </th>
         </tr>
       </thead>

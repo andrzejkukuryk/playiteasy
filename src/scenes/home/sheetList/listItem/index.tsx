@@ -51,9 +51,21 @@ export function ListItem({ number, song }: ListItemProps) {
       <tr className={trClass} id={collapseId}>
         <td colSpan={4}>
           <div className="d-flex justify-content-around">
-            <p>{song.notes}</p>
-            <p>{song.tabs}</p>
-            <p>{song.video}</p>
+            <p>
+              <a href={song.notes} target="_blank" rel="noreferrer">
+                notes
+              </a>
+            </p>
+            <p>
+              <a href={song.tabs} target="_blank" rel="noreferrer">
+                tabs
+              </a>
+            </p>
+            <p>
+              <a href={song.video} target="_blank" rel="noreferrer">
+                video
+              </a>
+            </p>
           </div>
         </td>
       </tr>
