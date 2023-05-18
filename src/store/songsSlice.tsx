@@ -1,8 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { SongInfo } from "../models/songInfo";
 import { songs } from "../dummyData/songs";
-
 
 interface SongsState {
   allSongs: SongInfo[];
@@ -10,6 +9,7 @@ interface SongsState {
   searchQuery: string;
   sortType: SortType;
   expendedRecords: string[];
+  status: ApiStatus;
 }
 
 export type SortType =
@@ -20,12 +20,15 @@ export type SortType =
   | "sortDifficulty15"
   | "sortDifficulty51";
 
+type ApiStatus = "idle" | "loading" | "completed" | "failed";
+
 const initialState: SongsState = {
   allSongs: songs,
   filterDifficulty: [1, 2, 3, 4, 5],
   searchQuery: "",
   sortType: "sortArtistAZ",
   expendedRecords: [],
+  status: "idle",
 };
 
 export const songsSlice = createSlice({
@@ -62,6 +65,22 @@ export const songsSlice = createSlice({
       }
     },
   },
+});
+
+// const getSongs = async () => {
+//   const endpoint =
+//     "https://play-it-easy-default-rtdb.europe-west1.firebasedatabase.app/songs.json";
+//   const jsonResponse = await fetch(endpoint, { method: "GET" });
+//   const response = await jsonResponse.json();
+//   console.log(response);
+// };
+// getSongs();
+export const fetchSongs = createAsyncThunk("songs/fetchSongs", async () => {
+  const endpoint =
+    "https://play-it-easy-default-rtdb.europe-west1.firebasedatabase.app/songs.json";
+  const jsonResponse = await fetch(endpoint, { method: "GET" });
+  const response = await jsonResponse.json();
+  return response;
 });
 
 // Action creators are generated for each case reducer function
