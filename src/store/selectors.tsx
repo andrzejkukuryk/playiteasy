@@ -115,3 +115,7 @@ export const expendedRecordsSelector = (state: RootState) => {
 export const sortTypeSelector = (state: RootState) => {
   return state.songs.sortType;
 };
+
+export const statusSelector = (state: RootState) => {
+  return state.songs.status;
+};

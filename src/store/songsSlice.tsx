@@ -23,7 +23,7 @@ export type SortType =
 type ApiStatus = "idle" | "loading" | "completed" | "failed";
 
 const initialState: SongsState = {
-  allSongs: songs,
+  allSongs: [],
   filterDifficulty: [1, 2, 3, 4, 5],
   searchQuery: "",
   sortType: "sortArtistAZ",
@@ -35,9 +35,6 @@ export const songsSlice = createSlice({
   name: "songs",
   initialState,
   reducers: {
-    loadSongs: (state, action: PayloadAction<SongInfo[]>) => {
-      state.allSongs = action.payload;
-    },
     updateSearchQuery: (state, action: PayloadAction<string>) => {
       state.searchQuery = action.payload;
     },
@@ -65,16 +62,21 @@ export const songsSlice = createSlice({
       }
     },
   },
+  extraReducers(builder) {
+    builder
+      .addCase(fetchSongs.pending, (state, action) => {
+        state.status = "loading";
+      })
+      .addCase(fetchSongs.fulfilled, (state, action) => {
+        state.allSongs = action.payload;
+        state.status = "completed";
+      })
+      .addCase(fetchSongs.rejected, (state, action) => {
+        state.status = "failed";
+      });
+  },
 });
 
-// const getSongs = async () => {
-//   const endpoint =
-//     "https://play-it-easy-default-rtdb.europe-west1.firebasedatabase.app/songs.json";
-//   const jsonResponse = await fetch(endpoint, { method: "GET" });
-//   const response = await jsonResponse.json();
-//   console.log(response);
-// };
-// getSongs();
 export const fetchSongs = createAsyncThunk("songs/fetchSongs", async () => {
   const endpoint =
     "https://play-it-easy-default-rtdb.europe-west1.firebasedatabase.app/songs.json";
@@ -85,7 +87,6 @@ export const fetchSongs = createAsyncThunk("songs/fetchSongs", async () => {
 
 // Action creators are generated for each case reducer function
 export const {
-  loadSongs,
   updateSearchQuery,
   updateSortType,
   addDifficulty,

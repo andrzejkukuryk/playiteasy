@@ -2,27 +2,37 @@ import React, { useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { ListItem } from "./listItem";
 import { useSelector, useDispatch } from "react-redux";
-import { SortType, loadSongs, updateSortType } from "../../../store/songsSlice";
+import {
+  SortType,
+  updateSortType,
+  fetchSongs,
+} from "../../../store/songsSlice";
 import {
   filteredSongsSelector,
   sortTypeSelector,
-  // expendedRecordsSelector,
+  statusSelector,
 } from "../../../store/selectors";
-import { songs as dummySongs } from "../../../dummyData/songs";
+import { uploadToFirebase } from "../../../dummyData/songs";
 import { ReactComponent as BiSortAZ } from "../../../assets/bi-sortAZ.svg";
 import { ReactComponent as BiSortZA } from "../../../assets/bi-sortZA.svg";
 import { ReactComponent as BiSort15 } from "../../../assets/bi-sort15.svg";
 import { ReactComponent as BiSort51 } from "../../../assets/bi-sort51.svg";
 import { SortButton } from "./sortButton";
+// import { store } from "../../../store/store";
 
 export function SheetList() {
   const songs = useSelector(filteredSongsSelector);
+  const status = useSelector(statusSelector);
   const activeSortType = useSelector(sortTypeSelector);
   const dispatch = useDispatch();
 
-
   useEffect(() => {
-    dispatch(loadSongs(dummySongs));
+    //uncomment when new songs added
+    // uploadToFirebase();
+    if (status === "idle") {
+      //@ts-ignore
+      dispatch(fetchSongs());
+    }
   }, []);
 
   const createList = () => {

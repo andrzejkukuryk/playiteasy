@@ -127,9 +127,46 @@ export const songs: SongInfo[] = [
     tabs: "https://www.dropbox.com/s/c8lk74pcrcdc3pi/play%20it%20easy%20%28tab%29%20-%20lady%20gaga%20-%20paparazzi.pdf?dl=0",
     video: "https://www.youtube.com/watch?v=eguSJWJwEQo",
   },
+  {
+    artist: "Kult",
+    title: "Wódka",
+    difficulty: 3,
+    notes:
+      "https://www.dropbox.com/s/stp5m65px8ywp4v/play%20it%20easy%20-%20kult%20-%20w%C3%B3dka.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/y92rmbm5e7eap6i/play%20it%20easy%20%28tab%29%20-%20kult%20-%20w%C3%B3dka.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=24eOeYqrLuo",
+  },
+  {
+    artist: "Rick James",
+    title: "Super Freak",
+    difficulty: 4,
+    notes:
+      "https://www.dropbox.com/s/5izdww7xpqc54zw/play%20it%20easy%20-%20rick%20james%20-%20super%20freak.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/c7o6no65qn702ha/play%20it%20easy%20%28tab%29%20-%20rick%20james%20-%20super%20freak.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=uJ5gteDSwAU",
+  },
+  {
+    artist: "Kaoma",
+    title: "Lambada",
+    difficulty: 3,
+    notes:
+      "https://www.dropbox.com/s/4wkanvtoi6oeuht/play%20it%20easy%20-%20kaoma%20-%20lambada.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/dlhtmy054q9eqfk/play%20it%20easy%20%28tab%29%20-%20kaoma%20-%20lambada.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=TIxo17MVz4Q",
+  },
+  {
+    artist: "TheFatRat",
+    title: "Fly Away",
+    difficulty: 2,
+    notes:
+      "https://www.dropbox.com/s/2fn9dk7x18uri5j/play%20it%20easy%20-%20thefatrat%20-%20fly%20away.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/9zp0onomgz95wd5/play%20it%20easy%20%28tab%29%20-%20thefatrat%20-%20fly%20away.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=TMBiSZgABKs",
+  },
 ];
 
-const uploadToFirebase = async () => {
+export const uploadToFirebase = async () => {
+  console.log("hop");
   const endpoint =
     "https://play-it-easy-default-rtdb.europe-west1.firebasedatabase.app/songs.json";
   const response = await fetch(endpoint, {
