@@ -127,9 +127,154 @@ export const songs: SongInfo[] = [
     tabs: "https://www.dropbox.com/s/c8lk74pcrcdc3pi/play%20it%20easy%20%28tab%29%20-%20lady%20gaga%20-%20paparazzi.pdf?dl=0",
     video: "https://www.youtube.com/watch?v=eguSJWJwEQo",
   },
+  {
+    artist: "Kult",
+    title: "Wódka",
+    difficulty: 3,
+    notes:
+      "https://www.dropbox.com/s/stp5m65px8ywp4v/play%20it%20easy%20-%20kult%20-%20w%C3%B3dka.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/y92rmbm5e7eap6i/play%20it%20easy%20%28tab%29%20-%20kult%20-%20w%C3%B3dka.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=24eOeYqrLuo",
+  },
+  {
+    artist: "Rick James",
+    title: "Super Freak",
+    difficulty: 4,
+    notes:
+      "https://www.dropbox.com/s/5izdww7xpqc54zw/play%20it%20easy%20-%20rick%20james%20-%20super%20freak.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/c7o6no65qn702ha/play%20it%20easy%20%28tab%29%20-%20rick%20james%20-%20super%20freak.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=uJ5gteDSwAU",
+  },
+  {
+    artist: "Kaoma",
+    title: "Lambada",
+    difficulty: 3,
+    notes:
+      "https://www.dropbox.com/s/4wkanvtoi6oeuht/play%20it%20easy%20-%20kaoma%20-%20lambada.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/dlhtmy054q9eqfk/play%20it%20easy%20%28tab%29%20-%20kaoma%20-%20lambada.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=TIxo17MVz4Q",
+  },
+  {
+    artist: "TheFatRat",
+    title: "Fly Away",
+    difficulty: 2,
+    notes:
+      "https://www.dropbox.com/s/2fn9dk7x18uri5j/play%20it%20easy%20-%20thefatrat%20-%20fly%20away.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/9zp0onomgz95wd5/play%20it%20easy%20%28tab%29%20-%20thefatrat%20-%20fly%20away.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=TMBiSZgABKs",
+  },
+  {
+    artist: "The Beatles",
+    title: "She Loves You",
+    difficulty: 3,
+    notes:
+      "https://www.dropbox.com/s/nlt6i1hamwvse71/play%20it%20easy%20-%20beatles%20-%20she%20loves%20you.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/542em694l9deohg/play%20it%20easy%20%28tab%29%20-%20beatles%20-%20she%20loves%20you.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=DVhBk1CcdyQ",
+  },
+  {
+    artist: "Bloodhound Gang",
+    title: "Fire Water Burn",
+    difficulty: 2,
+    notes:
+      "https://www.dropbox.com/s/7axemli5ozefxak/play%20it%20easy%20-%20bloodhound%20gang%20-%20fire%20warter%20burn.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/u6b1wp0jr9h410w/play%20it%20easy%20%28tab%29%20-%20bloodhound%20gang%20-%20fire%20warter%20burn.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=E8Vdx0Gqf2M",
+  },
+  {
+    artist: "Britney Spears",
+    title: "Baby One More Time",
+    difficulty: 3,
+    notes:
+      "https://www.dropbox.com/s/ewe694jwbw9rpn4/play%20it%20easy%20-%20britney%20spears%20-%20baby%20one%20more%20time.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/ehveeka1z4renjd/play%20it%20easy%20%28tab%29%20-%20britney%20spears%20-%20baby%20one%20more%20time.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=yzks68Bcz0Q",
+  },
+  {
+    artist: "Village People",
+    title: "Go West",
+    difficulty: 2,
+    notes:
+      "https://www.dropbox.com/s/wjkuwypg0astdj0/play%20it%20easy%20-%20village%20people%20-%20go%20west.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/a6c3lk5omvohflx/play%20it%20easy%20%28tab%29%20-%20village%20people%20-%20go%20west.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=4orAC3vPtnA",
+  },
+  {
+    artist: "Billy Joel",
+    title: "Uptown Girl",
+    difficulty: 4,
+    notes:
+      "https://www.dropbox.com/s/hb0g6ejzpzjt51i/play%20it%20easy%20-%20billy%20joel%20-%20uptown%20girl.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/v9kduvczc6sdps4/play%20it%20easy%20%28tab%29%20-%20billy%20joel%20-%20uptown%20girl.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=AE81yn1dY00",
+  },
+  {
+    artist: "Mike Oldfield",
+    title: "Moonlight Shadow",
+    difficulty: 3,
+    notes:
+      "https://www.dropbox.com/s/sm5e70zgmjp1cct/play%20it%20easy%20-%20mike%20oldfield%20-%20moonlight%20shadow.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/7urt8oaw4ej491t/play%20it%20easy%20%28tab%29%20-%20mike%20oldfield%20-%20moonlight%20shadow.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=423OCFDltYc",
+  },
+  {
+    artist: "Panic! At The Disco",
+    title: "High Hopes",
+    difficulty: 4,
+    notes:
+      "https://www.dropbox.com/s/ihjpcuo47wvejwe/play%20it%20easy%20-%20panic%20at%20the%20disco%20-%20high%20hopes.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/s83up1s8uyb62jd/play%20it%20easy%20%28tab%29%20-%20panic%20at%20the%20disco%20-%20high%20hopes.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=lTUyVkqgPmM",
+  },
+  {
+    artist: "Michael Jackson",
+    title: "Billie Jean",
+    difficulty: 4,
+    notes:
+      "https://www.dropbox.com/s/tzdcpneokoxl57c/play%20it%20easy%20-%20michael%20jackson%20-%20billie%20jean.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/shyvh18of8it0d2/play%20it%20easy%20%28tab%29%20-%20michael%20jackson%20-%20billie%20jean.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=h8SdtWijZxw",
+  },
+  {
+    artist: "Eric Clapton",
+    title: "Cocaine",
+    difficulty: 3,
+    notes:
+      "https://www.dropbox.com/s/nb5hca1sgnc1zht/play%20it%20easy%20-%20eric%20clapton%20-%20cocaine.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/i15oqi0hpjfya1d/play%20it%20easy%20%28tab%29%20-%20eric%20clapton%20-%20cocaine.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=OVwU0i647ys",
+  },
+  {
+    artist: "Train",
+    title: "Hey, Soul Sister",
+    difficulty: 4,
+    notes:
+      "https://www.dropbox.com/s/ukrmm2t6mmoj92a/play%20it%20easy%20-%20train%20-%20hey%20soul%20sister.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/21cihtgiiq38ius/play%20it%20easy%20%28tab%29%20-%20train%20-%20hey%20soul%20sister.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=14s_jvDy8A0",
+  },
+  {
+    artist: "O-Zone",
+    title: "Dragostea Din Tei",
+    difficulty: 5,
+    notes:
+      "https://www.dropbox.com/s/ycexctcqf7v5l1i/play%20it%20easy%20-%20ozone%20-%20dragostea%20din%20tei.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/qgx27ev8dj1qdpg/play%20it%20easy%20%28tab%29%20-%20ozone%20-%20dragostea%20din%20tei.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=r0jl_xUCsZ8",
+  },
+  {
+    artist: "Bryan Adams",
+    title: "All For Love",
+    difficulty: 3,
+    notes:
+      "https://www.dropbox.com/s/2nr7id8b2jsxlmt/play%20it%20easy%20-%20bryan%20adams%20-%20all%20for%20love.pdf?dl=0",
+    tabs: "https://www.dropbox.com/s/v4gagrgcrs7b0ct/play%20it%20easy%20%28tab%29%20-%20bryan%20adams%20-%20all%20for%20love.pdf?dl=0",
+    video: "https://www.youtube.com/watch?v=NwYVMqd-amI",
+  },
 ];
 
-const uploadToFirebase = async () => {
+export const uploadToFirebase = async () => {
+  console.log("hop");
   const endpoint =
     "https://play-it-easy-default-rtdb.europe-west1.firebasedatabase.app/songs.json";
   const response = await fetch(endpoint, {
@@ -137,6 +282,3 @@ const uploadToFirebase = async () => {
     body: JSON.stringify(songs),
   });
 };
-
-//uncomment to update database
-// uploadToFirebase();
