@@ -12,8 +12,8 @@ import {
   sortTypeSelector,
   statusSelector,
 } from "../../../store/selectors";
-//DO NOT DELETE:
-import { uploadToFirebase } from "dummyData/songs";
+//uncomment when new songs added
+// import { uploadToFirebase } from "dummyData/songs";
 import { ReactComponent as BiSortAZ } from "assets/bi-sortAZ.svg";
 import { ReactComponent as BiSortZA } from "assets/bi-sortZA.svg";
 import { ReactComponent as BiSort15 } from "assets/bi-sort15.svg";
