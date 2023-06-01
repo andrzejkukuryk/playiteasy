@@ -13,13 +13,13 @@ import {
   statusSelector,
 } from "../../../store/selectors";
 //DO NOT DELETE:
-import { uploadToFirebase } from "../../../dummyData/songs";
-import { ReactComponent as BiSortAZ } from "../../../assets/bi-sortAZ.svg";
-import { ReactComponent as BiSortZA } from "../../../assets/bi-sortZA.svg";
-import { ReactComponent as BiSort15 } from "../../../assets/bi-sort15.svg";
-import { ReactComponent as BiSort51 } from "../../../assets/bi-sort51.svg";
+import { uploadToFirebase } from "dummyData/songs";
+import { ReactComponent as BiSortAZ } from "assets/bi-sortAZ.svg";
+import { ReactComponent as BiSortZA } from "assets/bi-sortZA.svg";
+import { ReactComponent as BiSort15 } from "assets/bi-sort15.svg";
+import { ReactComponent as BiSort51 } from "assets/bi-sort51.svg";
 import { SortButton } from "./sortButton";
-import { AppDispatch } from "../../../store/store";
+import { AppDispatch } from "store/store";
 
 export function SheetList() {
   const songs = useSelector(filteredSongsSelector);
