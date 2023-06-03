@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { updateSearchQuery } from "../../../../store/songsSlice";
+import { updateSearchQuery } from "store/songsSlice";
 
 export function TextInput() {
   const [searchPhrase, setSearchPhrase] = useState("");

@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { SongInfo } from "../models/songInfo";
-import { songs } from "../dummyData/songs";
+import { SongInfo } from "models/songInfo";
+import { songs } from "dummyData/songs";
 
 interface SongsState {
   allSongs: SongInfo[];

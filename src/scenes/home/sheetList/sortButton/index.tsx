@@ -1,5 +1,5 @@
 import React from "react";
-import { SortType } from "../../../../store/songsSlice";
+import { SortType } from "store/songsSlice";
 import { PropsWithChildren } from "react";
 import classNames from "classnames";
 import "./style.css";

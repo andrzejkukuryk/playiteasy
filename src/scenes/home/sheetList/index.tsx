@@ -2,16 +2,12 @@ import React, { useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { ListItem } from "./listItem";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  SortType,
-  updateSortType,
-  fetchSongs,
-} from "../../../store/songsSlice";
+import { SortType, updateSortType, fetchSongs } from "store/songsSlice";
 import {
   filteredSongsSelector,
   sortTypeSelector,
   statusSelector,
-} from "../../../store/selectors";
+} from "store/selectors";
 //uncomment when new songs added
 // import { uploadToFirebase } from "dummyData/songs";
 import { ReactComponent as BiSortAZ } from "assets/bi-sortAZ.svg";

@@ -1,4 +1,4 @@
-import { SongInfo } from "../models/songInfo";
+import { SongInfo } from "models/songInfo";
 import { SortType } from "./songsSlice";
 import { RootState } from "./store";
 
