@@ -1,6 +1,6 @@
 import React from "react";
-import { ReactComponent as BiStar } from "../../assets/bi-star.svg";
-import { ReactComponent as BiStarFill } from "../../assets/bi-star-fill.svg";
+import { ReactComponent as BiStar } from "assets/bi-star.svg";
+import { ReactComponent as BiStarFill } from "assets/bi-star-fill.svg";
 import classNames from "classnames";
 
 interface DifficultyStarsProps {

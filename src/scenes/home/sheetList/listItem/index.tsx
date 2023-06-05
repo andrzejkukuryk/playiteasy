@@ -1,9 +1,9 @@
 import React from "react";
-import { SongInfo } from "../../../../models/songInfo";
-import { DifficultyStars } from "../../../../components/difficultyStars";
-import { updateExpendedRecords } from "../../../../store/songsSlice";
+import { SongInfo } from "models/songInfo";
+import { DifficultyStars } from "components/difficultyStars";
+import { updateExpendedRecords } from "store/songsSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { expendedRecordsSelector } from "../../../../store/selectors";
+import { expendedRecordsSelector } from "store/selectors";
 import classNames from "classnames";
 
 interface ListItemProps {
