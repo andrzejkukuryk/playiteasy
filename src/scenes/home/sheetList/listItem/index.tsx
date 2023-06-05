@@ -4,6 +4,8 @@ import { DifficultyStars } from "components/difficultyStars";
 import { updateExpendedRecords } from "store/songsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { expendedRecordsSelector } from "store/selectors";
+import { ReactComponent as BiYoutube } from "assets/bi-youtube.svg";
+import { ReactComponent as BiDropbox } from "assets/bi-dropbox.svg";
 import classNames from "classnames";
 
 interface ListItemProps {
@@ -41,7 +43,6 @@ export function ListItem({ number, song }: ListItemProps) {
         itemType="button"
         onClick={() => handleClick(collapseId)}
       >
-        <td style={{ width: 40 }}>{number}</td>
         <td style={{ width: 300 }}>{song.artist}</td>
         <td style={{ width: 300 }}>{song.title}</td>
         <td style={{ width: 120 }}>
@@ -49,20 +50,23 @@ export function ListItem({ number, song }: ListItemProps) {
         </td>
       </tr>
       <tr className={trClass} id={collapseId}>
-        <td colSpan={4}>
+        <td colSpan={3}>
           <div className="d-flex justify-content-around">
             <p>
               <a href={song.notes} target="_blank" rel="noreferrer">
+                <BiDropbox />
                 notes
               </a>
             </p>
             <p>
               <a href={song.tabs} target="_blank" rel="noreferrer">
+                <BiDropbox />
                 tabs
               </a>
             </p>
             <p>
               <a href={song.video} target="_blank" rel="noreferrer">
+                <BiYoutube />
                 video
               </a>
             </p>

@@ -15,7 +15,9 @@ import { ReactComponent as BiSortZA } from "assets/bi-sortZA.svg";
 import { ReactComponent as BiSort15 } from "assets/bi-sort15.svg";
 import { ReactComponent as BiSort51 } from "assets/bi-sort51.svg";
 import { SortButton } from "./sortButton";
+
 import { AppDispatch } from "store/store";
+import { SortDoubleButton } from "./sortDoubleButton";
 
 export function SheetList() {
   const songs = useSelector(filteredSongsSelector);
@@ -45,10 +47,11 @@ export function SheetList() {
     <Table striped bordered>
       <thead>
         <tr>
-          <th>#</th>
+          {/* <th>#</th> */}
           <th>
+            <SortDoubleButton />
             Artist
-            <SortButton
+            {/* <SortButton
               activeSortType={activeSortType}
               sortType="sortArtistAZ"
               handleClick={handleClick}
@@ -61,11 +64,12 @@ export function SheetList() {
               handleClick={handleClick}
             >
               <BiSortZA />
-            </SortButton>
+            </SortButton> */}
           </th>
           <th>
+            <SortDoubleButton />
             Title
-            <SortButton
+            {/* <SortButton
               activeSortType={activeSortType}
               sortType="sortTitleAZ"
               handleClick={handleClick}
@@ -78,11 +82,12 @@ export function SheetList() {
               handleClick={handleClick}
             >
               <BiSortZA />
-            </SortButton>
+            </SortButton> */}
           </th>
           <th>
+            <SortDoubleButton />
             Difficulty
-            <SortButton
+            {/* <SortButton
               activeSortType={activeSortType}
               sortType="sortDifficulty15"
               handleClick={handleClick}
@@ -95,14 +100,14 @@ export function SheetList() {
               handleClick={handleClick}
             >
               <BiSort51 />
-            </SortButton>
+            </SortButton> */}
           </th>
         </tr>
       </thead>
       <tbody>{createList()}</tbody>
       {songs.length === 0 && (
         <tr>
-          <td></td>
+          {/* <td></td> */}
           <td colSpan={3}>Nothing found here</td>
         </tr>
       )}
