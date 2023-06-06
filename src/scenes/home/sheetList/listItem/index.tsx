@@ -43,9 +43,9 @@ export function ListItem({ number, song }: ListItemProps) {
         itemType="button"
         onClick={() => handleClick(collapseId)}
       >
-        <td style={{ width: 300 }}>{song.artist}</td>
-        <td style={{ width: 300 }}>{song.title}</td>
-        <td style={{ width: 120 }}>
+        <td style={{ width: 240 }}>{song.artist}</td>
+        <td style={{ width: 240 }}>{song.title}</td>
+        <td style={{ width: 240 }}>
           <DifficultyStars difficulty={song.difficulty} />
         </td>
       </tr>
