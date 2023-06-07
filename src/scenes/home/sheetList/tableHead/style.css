@@ -1,3 +1,10 @@
+.gridContainer {
+    display: grid;
+    grid-template-rows: 14px 14px;
+    grid-template-columns: 40px 1fr;
+    background-color: #000;
+}
+
 .sortButton {
     background: none;
     border: none;
@@ -16,4 +23,9 @@
 
 .activeSort {
     color: white;
+}
+
+.label {
+    grid-area: 1 / 2 / span 2 / span 1;
+    
 }
