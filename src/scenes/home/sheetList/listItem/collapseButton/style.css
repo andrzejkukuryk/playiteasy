@@ -1,0 +1,21 @@
+.collapseButton{
+    background: none;
+    height: 24px;
+    color: #ff2f2f;
+    border: none;
+}
+
+.rotateDownUp {
+animation: rotation 0.1s 1 linear;
+animation-fill-mode: forwards;
+}
+
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(180deg);
+    }
+  }

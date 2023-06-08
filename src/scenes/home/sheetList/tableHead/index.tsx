@@ -35,35 +35,6 @@ export function TableHead({
     activeSort: activeSortType === lowerButton,
   });
   return (
-    // <Container className="p-0 bg-dark">
-    //   <Row>
-    //     <Col xs={3} md={2}>
-    //       <Container className="p-0">
-    //         <Row className="m-0">
-    //           <button
-    //             type="button"
-    //             className={upperButtonClass}
-    //             onClick={handleUpperClick}
-    //           >
-    //             <BiChevronUp />
-    //           </button>
-    //         </Row>
-    //         <Row className="m-0">
-    // <button
-    //   type="button"
-    //   className={lowerButtonClass}
-    //   onClick={handleLowerClick}
-    // >
-    //   <BiChevronDown />
-    // </button>
-    //         </Row>
-    //       </Container>
-    //     </Col>
-    //     <Col xs={9} md={10} className="text-white fs-4 fw-light">
-    //       {label}
-    //     </Col>
-    //   </Row>
-    // </Container>
     <div className="gridContainer">
       <div>
         <button
@@ -75,7 +46,7 @@ export function TableHead({
         </button>
       </div>
       <div className="label">
-        <p>{label}</p>
+        <p className="fw-light fs-5 text-white">{label}</p>
       </div>
       <div>
         <button

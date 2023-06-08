@@ -62,6 +62,7 @@ export function SheetList() {
               label="Level"
             />
           </th>
+          <th className="p-0 bg-black"></th>
         </tr>
       </thead>
       <tbody>{createList()}</tbody>

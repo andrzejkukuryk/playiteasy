@@ -7,6 +7,7 @@ import { expendedRecordsSelector } from "store/selectors";
 import { ReactComponent as BiYoutube } from "assets/bi-youtube.svg";
 import { ReactComponent as BiDropbox } from "assets/bi-dropbox.svg";
 import classNames from "classnames";
+import { CollapseButton } from "./collapseButton";
 
 interface ListItemProps {
   number: number;
@@ -43,13 +44,17 @@ export function ListItem({ number, song }: ListItemProps) {
         itemType="button"
         onClick={() => handleClick(collapseId)}
       >
-        <td style={{ width: 240 }}>{song.artist}</td>
-        <td style={{ width: 240 }}>{song.title}</td>
-        <td style={{ width: 240 }}>
+        <td style={{ width: 230 }}>{song.artist}</td>
+        <td style={{ width: 230 }}>{song.title}</td>
+        <td style={{ width: 100 }}>
           <DifficultyStars difficulty={song.difficulty} />
+        </td>
+        <td style={{ width: 40 }}>
+          <CollapseButton collapseId={collapseId} />
         </td>
       </tr>
       <tr className={trClass} id={collapseId}>
+        <td></td>
         <td colSpan={3}>
           <div className="d-flex justify-content-around">
             <p>

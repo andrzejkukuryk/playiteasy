@@ -1,0 +1,18 @@
+.searchInput {
+    background: none;
+    border-right: none;
+}
+.searchInput:active {
+    border-color: #ced4da;
+}
+
+.searchButton {
+    background: none;
+    border-color: #ced4da;
+    border-left: none;
+}
+
+.searchButton:hover {
+    background: none;
+    border-color: #ced4da;
+}
