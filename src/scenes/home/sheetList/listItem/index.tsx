@@ -4,10 +4,9 @@ import { DifficultyStars } from "components/difficultyStars";
 import { updateExpendedRecords } from "store/songsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { expendedRecordsSelector } from "store/selectors";
-import { ReactComponent as BiYoutube } from "assets/bi-youtube.svg";
-import { ReactComponent as BiDropbox } from "assets/bi-dropbox.svg";
 import classNames from "classnames";
 import { CollapseButton } from "./collapseButton";
+import { MediaLink } from "./mediaLink";
 
 interface ListItemProps {
   number: number;
@@ -56,25 +55,10 @@ export function ListItem({ number, song }: ListItemProps) {
       <tr className={trClass} id={collapseId}>
         <td></td>
         <td colSpan={3}>
-          <div className="d-flex justify-content-around">
-            <p>
-              <a href={song.notes} target="_blank" rel="noreferrer">
-                <BiDropbox />
-                notes
-              </a>
-            </p>
-            <p>
-              <a href={song.tabs} target="_blank" rel="noreferrer">
-                <BiDropbox />
-                tabs
-              </a>
-            </p>
-            <p>
-              <a href={song.video} target="_blank" rel="noreferrer">
-                <BiYoutube />
-                video
-              </a>
-            </p>
+          <div className="d-flex justify-content-between">
+            <MediaLink link={song.notes} linkLabel="notes" />
+            <MediaLink link={song.tabs} linkLabel="tabs" />
+            <MediaLink link={song.video} linkLabel="video" />
           </div>
         </td>
       </tr>

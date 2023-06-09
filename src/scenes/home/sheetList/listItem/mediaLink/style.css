@@ -1,0 +1,8 @@
+.mediaLink {
+    color: #000;
+    text-decoration: none;
+}
+
+.mediaLink:hover {
+    color: #FF2F2F;
+} 
