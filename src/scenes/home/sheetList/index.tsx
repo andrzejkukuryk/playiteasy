@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { ListItem } from "./listItem";
 import { useSelector, useDispatch } from "react-redux";
@@ -13,8 +13,10 @@ import {
 
 import { AppDispatch } from "store/store";
 import { TableHead } from "./tableHead";
+import { TablePagination } from "./tablePagination";
 
 export function SheetList() {
+  const [activePage, setActivePage] = useState(1);
   const songs = useSelector(filteredSongsSelector);
   const status = useSelector(statusSelector);
   const activeSortType = useSelector(sortTypeSelector);
@@ -34,43 +36,60 @@ export function SheetList() {
     ));
   };
 
+  const numberOfPages = Math.ceil(songs.length / 10);
+  const indexOfLastItem = activePage * 10;
+  const indexOfFirstItem = indexOfLastItem - 10;
+
+  const displayPage = () => {
+    return createList().slice(indexOfFirstItem, indexOfLastItem);
+  };
+
   return (
-    <Table>
-      <thead className="table border">
-        <tr>
-          <th className="p-0">
-            <TableHead
-              upperButton="sortArtistZA"
-              lowerButton="sortArtistAZ"
-              activeSortType={activeSortType}
-              label="Artist"
-            />
-          </th>
-          <th className="p-0">
-            <TableHead
-              upperButton="sortTitleZA"
-              lowerButton="sortTitleAZ"
-              activeSortType={activeSortType}
-              label="Song"
-            />
-          </th>
-          <th className="p-0">
-            <TableHead
-              upperButton="sortDifficulty51"
-              lowerButton="sortDifficulty15"
-              activeSortType={activeSortType}
-              label="Level"
-            />
-          </th>
-          <th className="p-0 bg-black"></th>
-        </tr>
-      </thead>
-      <tbody>{createList()}</tbody>
-      {songs.length === 0 && (
-        <tr>
-          <td colSpan={3}>Nothing found here</td>
-        </tr>
+    <div>
+      <Table>
+        <thead className="table border">
+          <tr>
+            <th className="p-0">
+              <TableHead
+                upperButton="sortArtistZA"
+                lowerButton="sortArtistAZ"
+                activeSortType={activeSortType}
+                label="Artist"
+              />
+            </th>
+            <th className="p-0">
+              <TableHead
+                upperButton="sortTitleZA"
+                lowerButton="sortTitleAZ"
+                activeSortType={activeSortType}
+                label="Song"
+              />
+            </th>
+            <th className="p-0">
+              <TableHead
+                upperButton="sortDifficulty51"
+                lowerButton="sortDifficulty15"
+                activeSortType={activeSortType}
+                label="Level"
+              />
+            </th>
+            <th className="p-0 bg-black"></th>
+          </tr>
+        </thead>
+        <tbody>{displayPage()}</tbody>
+        {songs.length === 0 && (
+          <tr>
+            <td colSpan={3}>Nothing found here</td>
+          </tr>
+        )}
+      </Table>
+      {numberOfPages > 1 && (
+        <TablePagination
+          numberOfPages={numberOfPages}
+          activePage={activePage}
+          setActivePage={setActivePage}
+        />
       )}
-    </Table>
+    </div>
   );
 }
