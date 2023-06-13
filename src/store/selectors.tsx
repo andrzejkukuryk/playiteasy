@@ -104,10 +104,6 @@ export const filteredSongsSelector = (state: RootState): SongInfo[] => {
   return filteredSorted(sortType);
 };
 
-export const numberOfPagesSelector = () => {
-  return filteredSongsSelector.length / 10;
-};
-
 export const difficultyFiltersSelector = (state: RootState) => {
   return state.songs.filterDifficulty;
 };

@@ -24,9 +24,9 @@ export function TextInput() {
           onChange={(e) => {
             setSearchPhrase(e.target.value);
           }}
-          className="searchInput"
+          className="bg-secondary"
         />
-        <Button type="submit" className="searchButton">
+        <Button type="submit" variant="secondary" className="bg-secondary">
           <BiSearch />
         </Button>
       </InputGroup>
