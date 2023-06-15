@@ -24,9 +24,13 @@ export function TextInput() {
           onChange={(e) => {
             setSearchPhrase(e.target.value);
           }}
-          className="bg-secondary"
+          className="bg-secondary border border-light-subtle border-end-0 text-light"
         />
-        <Button type="submit" variant="secondary" className="bg-secondary">
+        <Button
+          type="submit"
+          variant="secondary"
+          className="bg-secondary border border-light-subtle border-start-0"
+        >
           <BiSearch />
         </Button>
       </InputGroup>

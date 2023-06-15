@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SongInfo } from "models/songInfo";
 import { DifficultyStars } from "components/difficultyStars";
 import { updateExpendedRecords } from "store/songsSlice";
@@ -14,11 +14,13 @@ interface ListItemProps {
 }
 
 export function ListItem({ number, song }: ListItemProps) {
+  const [letRotate, setLetRotate] = useState(false);
   const dispatch = useDispatch();
   const expendedRecords = useSelector(expendedRecordsSelector);
 
   const handleClick = (id: string) => {
     dispatch(updateExpendedRecords(id));
+    setLetRotate(true);
   };
 
   const collapseId = `collapseLinks${song.artist.replace(
@@ -49,7 +51,7 @@ export function ListItem({ number, song }: ListItemProps) {
           <DifficultyStars difficulty={song.difficulty} />
         </td>
         <td style={{ width: 40 }}>
-          <CollapseButton collapseId={collapseId} />
+          <CollapseButton collapseId={collapseId} letRotate={letRotate} />
         </td>
       </tr>
       <tr className={trClass} id={collapseId}>
