@@ -30,6 +30,10 @@ export function SheetList() {
     }
   }, []);
 
+  useEffect(() => {
+    setActivePage(1);
+  }, [songs.length]);
+
   const createList = () => {
     return songs.map((song, index) => (
       <ListItem number={index + 1} song={song} key={`song${index}`} />
