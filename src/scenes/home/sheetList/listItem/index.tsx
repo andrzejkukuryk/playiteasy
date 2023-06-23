@@ -7,6 +7,7 @@ import { expendedRecordsSelector } from "store/selectors";
 import classNames from "classnames";
 import { CollapseButton } from "./collapseButton";
 import { MediaLink } from "./mediaLink";
+import "./style.css";
 
 interface ListItemProps {
   number: number;
@@ -45,12 +46,12 @@ export function ListItem({ number, song }: ListItemProps) {
         itemType="button"
         onClick={() => handleClick(collapseId)}
       >
-        <td style={{ width: 230 }}>{song.artist}</td>
-        <td style={{ width: 230 }}>{song.title}</td>
-        <td style={{ width: 100 }}>
+        <td>{song.artist}</td>
+        <td>{song.title}</td>
+        <td>
           <DifficultyStars difficulty={song.difficulty} />
         </td>
-        <td style={{ width: 40 }}>
+        <td>
           <CollapseButton collapseId={collapseId} letRotate={letRotate} />
         </td>
       </tr>

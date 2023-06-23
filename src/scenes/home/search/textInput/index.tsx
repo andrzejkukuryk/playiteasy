@@ -7,7 +7,7 @@ export function TextInput() {
   const [searchPhrase, setSearchPhrase] = useState("");
   const dispatch = useDispatch();
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch(updateSearchQuery(searchPhrase));
   };
