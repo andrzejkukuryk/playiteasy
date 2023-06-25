@@ -21,10 +21,10 @@ export function Filters() {
   };
 
   return (
-    <div>
-      <p>Choose difficulty:</p>
+    <div className="mt-2">
       <Form>
         <Form.Check
+          reverse
           type="checkbox"
           id="1star"
           checked={chechCheched(1)}
@@ -32,6 +32,7 @@ export function Filters() {
           label={<DifficultyStars difficulty={1} />}
         />
         <Form.Check
+          reverse
           type="checkbox"
           id="2star"
           checked={chechCheched(2)}
@@ -39,6 +40,7 @@ export function Filters() {
           label={<DifficultyStars difficulty={2} />}
         />
         <Form.Check
+          reverse
           type="checkbox"
           id="3star"
           checked={chechCheched(3)}
@@ -46,6 +48,7 @@ export function Filters() {
           label={<DifficultyStars difficulty={3} />}
         />
         <Form.Check
+          reverse
           type="checkbox"
           id="4star"
           checked={chechCheched(4)}
@@ -53,6 +56,7 @@ export function Filters() {
           label={<DifficultyStars difficulty={4} />}
         />
         <Form.Check
+          reverse
           type="checkbox"
           id="5star"
           checked={chechCheched(5)}

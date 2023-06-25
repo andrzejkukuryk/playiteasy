@@ -1,9 +1,10 @@
 import React from "react";
 import { SheetList } from "./sheetList";
 import { Header } from "./header";
-import { Col, Container, Row } from "react-bootstrap";
-import { Search } from "./search";
+import { Container, Row } from "react-bootstrap";
 import { Footer } from "./footer/footer";
+import { Title } from "./title/title";
+import "./style.css";
 
 export function Home() {
   return (
@@ -11,13 +12,11 @@ export function Home() {
       <Row>
         <Header />
       </Row>
-      <Row>
-        <Col>
-          <Search />
-        </Col>
-        <Col xs={12} sm={9}>
-          <SheetList />
-        </Col>
+      <Row className="dimensions mx-auto">
+        <Title />
+      </Row>
+      <Row className="dimensions mx-auto">
+        <SheetList />
       </Row>
       <Row>
         <Footer />
