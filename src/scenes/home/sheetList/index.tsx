@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { ListItem } from "./listItem";
 import { useSelector, useDispatch } from "react-redux";
-import { SortType, updateSortType, fetchSongs } from "store/songsSlice";
+import { fetchSongs } from "store/songsSlice";
 import {
   filteredSongsSelector,
   sortTypeSelector,
@@ -10,14 +10,13 @@ import {
 } from "store/selectors";
 //uncomment when new songs added
 // import { uploadToFirebase } from "dummyData/songs";
-import { ReactComponent as BiSortAZ } from "assets/bi-sortAZ.svg";
-import { ReactComponent as BiSortZA } from "assets/bi-sortZA.svg";
-import { ReactComponent as BiSort15 } from "assets/bi-sort15.svg";
-import { ReactComponent as BiSort51 } from "assets/bi-sort51.svg";
-import { SortButton } from "./sortButton";
+
 import { AppDispatch } from "store/store";
+import { TableHead } from "./tableHead";
+import { TablePagination } from "./tablePagination";
 
 export function SheetList() {
+  const [activePage, setActivePage] = useState(1);
   const songs = useSelector(filteredSongsSelector);
   const status = useSelector(statusSelector);
   const activeSortType = useSelector(sortTypeSelector);
@@ -31,81 +30,70 @@ export function SheetList() {
     }
   }, []);
 
+  useEffect(() => {
+    setActivePage(1);
+  }, [songs.length]);
+
   const createList = () => {
     return songs.map((song, index) => (
       <ListItem number={index + 1} song={song} key={`song${index}`} />
     ));
   };
 
-  const handleClick = (sortType: SortType) => {
-    dispatch(updateSortType(sortType));
+  const numberOfPages = Math.ceil(songs.length / 10);
+  const indexOfLastItem = activePage * 10;
+  const indexOfFirstItem = indexOfLastItem - 10;
+
+  const displayPage = () => {
+    return createList().slice(indexOfFirstItem, indexOfLastItem);
   };
 
   return (
-    <Table striped bordered>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>
-            Artist
-            <SortButton
-              activeSortType={activeSortType}
-              sortType="sortArtistAZ"
-              handleClick={handleClick}
-            >
-              <BiSortAZ />
-            </SortButton>
-            <SortButton
-              activeSortType={activeSortType}
-              sortType="sortArtistZA"
-              handleClick={handleClick}
-            >
-              <BiSortZA />
-            </SortButton>
-          </th>
-          <th>
-            Title
-            <SortButton
-              activeSortType={activeSortType}
-              sortType="sortTitleAZ"
-              handleClick={handleClick}
-            >
-              <BiSortAZ />
-            </SortButton>
-            <SortButton
-              activeSortType={activeSortType}
-              sortType="sortTitleZA"
-              handleClick={handleClick}
-            >
-              <BiSortZA />
-            </SortButton>
-          </th>
-          <th>
-            Difficulty
-            <SortButton
-              activeSortType={activeSortType}
-              sortType="sortDifficulty15"
-              handleClick={handleClick}
-            >
-              <BiSort15 />
-            </SortButton>
-            <SortButton
-              activeSortType={activeSortType}
-              sortType="sortDifficulty51"
-              handleClick={handleClick}
-            >
-              <BiSort51 />
-            </SortButton>
-          </th>
-        </tr>
-      </thead>
-      <tbody>{createList()}</tbody>
-      {songs.length === 0 && (
-        <tr>
-          <td></td>
-          <td colSpan={3}>Nothing found here</td>
-        </tr>
+    <div>
+      <Table>
+        <thead className="table border">
+          <tr>
+            <th className="p-0">
+              <TableHead
+                upperButton="sortArtistZA"
+                lowerButton="sortArtistAZ"
+                activeSortType={activeSortType}
+                label="Artist"
+              />
+            </th>
+            <th className="p-0">
+              <TableHead
+                upperButton="sortTitleZA"
+                lowerButton="sortTitleAZ"
+                activeSortType={activeSortType}
+                label="Song"
+              />
+            </th>
+            <th className="p-0">
+              <TableHead
+                upperButton="sortDifficulty51"
+                lowerButton="sortDifficulty15"
+                activeSortType={activeSortType}
+                label="Level"
+              />
+            </th>
+            <th className="p-0 bg-black"></th>
+          </tr>
+        </thead>
+        <tbody>{displayPage()}</tbody>
+        {songs.length === 0 && (
+          <tr>
+            <td colSpan={3}>Nothing found here</td>
+          </tr>
+        )}
+      </Table>
+      {numberOfPages > 1 && (
+        <TablePagination
+          numberOfPages={numberOfPages}
+          activePage={activePage}
+          setActivePage={setActivePage}
+        />
       )}
-    </Table>
+    </div>
   );
 }

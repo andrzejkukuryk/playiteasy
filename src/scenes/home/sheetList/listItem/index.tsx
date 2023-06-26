@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { SongInfo } from "models/songInfo";
 import { DifficultyStars } from "components/difficultyStars";
 import { updateExpendedRecords } from "store/songsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { expendedRecordsSelector } from "store/selectors";
 import classNames from "classnames";
+import { CollapseButton } from "./collapseButton";
+import { MediaLink } from "./mediaLink";
+import "./style.css";
 
 interface ListItemProps {
   number: number;
@@ -12,11 +15,13 @@ interface ListItemProps {
 }
 
 export function ListItem({ number, song }: ListItemProps) {
+  const [letRotate, setLetRotate] = useState(false);
   const dispatch = useDispatch();
   const expendedRecords = useSelector(expendedRecordsSelector);
 
   const handleClick = (id: string) => {
     dispatch(updateExpendedRecords(id));
+    setLetRotate(true);
   };
 
   const collapseId = `collapseLinks${song.artist.replace(
@@ -41,31 +46,22 @@ export function ListItem({ number, song }: ListItemProps) {
         itemType="button"
         onClick={() => handleClick(collapseId)}
       >
-        <td style={{ width: 40 }}>{number}</td>
-        <td style={{ width: 300 }}>{song.artist}</td>
-        <td style={{ width: 300 }}>{song.title}</td>
-        <td style={{ width: 120 }}>
+        <td>{song.artist}</td>
+        <td>{song.title}</td>
+        <td>
           <DifficultyStars difficulty={song.difficulty} />
+        </td>
+        <td>
+          <CollapseButton collapseId={collapseId} letRotate={letRotate} />
         </td>
       </tr>
       <tr className={trClass} id={collapseId}>
-        <td colSpan={4}>
-          <div className="d-flex justify-content-around">
-            <p>
-              <a href={song.notes} target="_blank" rel="noreferrer">
-                notes
-              </a>
-            </p>
-            <p>
-              <a href={song.tabs} target="_blank" rel="noreferrer">
-                tabs
-              </a>
-            </p>
-            <p>
-              <a href={song.video} target="_blank" rel="noreferrer">
-                video
-              </a>
-            </p>
+        <td></td>
+        <td colSpan={3}>
+          <div className="d-flex justify-content-between">
+            <MediaLink link={song.notes} linkLabel="notes" />
+            <MediaLink link={song.tabs} linkLabel="tabs" />
+            <MediaLink link={song.video} linkLabel="video" />
           </div>
         </td>
       </tr>
