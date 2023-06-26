@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./mediaLink.css";
 import { ReactComponent as BiYoutube } from "assets/bi-youtube.svg";
 import { ReactComponent as BiDropbox } from "assets/bi-dropbox.svg";
 

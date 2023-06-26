@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { SongInfo } from "models/songInfo";
-import { DifficultyStars } from "components/difficultyStars";
+import { DifficultyStars } from "components/difficultyStars/difficultyStars";
 import { updateExpendedRecords } from "store/songsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { expendedRecordsSelector } from "store/selectors";
 import classNames from "classnames";
-import { CollapseButton } from "./collapseButton";
-import { MediaLink } from "./mediaLink";
-import "./style.css";
+import { CollapseButton } from "./collapseButton/collapseButton";
+import { MediaLink } from "./mediaLink/mediaLink";
+import "./listItem.css";
 
 interface ListItemProps {
   number: number;

@@ -1,9 +1,9 @@
 import react from "react";
-import "./style.css";
+import "./header.css";
 import logo from "assets/logoPlain.png";
 import icons from "assets/pieIcons.png";
 import { Container, Row, Col } from "react-bootstrap";
-import { TextInput } from "./textInput";
+import { TextInput } from "./textInput/textInput";
 
 export function Header() {
   return (

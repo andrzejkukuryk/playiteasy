@@ -3,7 +3,6 @@ import { Col, Container, Row } from "react-bootstrap";
 import logoGuitar from "assets/logoGuitarHead.png";
 import "./footer.css";
 import { SocialMedia } from "./socialMedia/socialMedia";
-import { relative } from "path";
 
 export function Footer() {
   return (

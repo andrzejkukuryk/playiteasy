@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./style.css";
+import "./collapseButton.css";
 import { ReactComponent as BiChevronDownBig } from "assets/bi-chevron-down-big.svg";
 import { expendedRecordsSelector } from "store/selectors";
 import { useSelector } from "react-redux";

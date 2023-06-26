@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Button, Col, Collapse, Container, Row } from "react-bootstrap";
-import { Filters } from "./filters";
+import { Filters } from "./filters/filters";
 import { ReactComponent as BiChevronDownBig } from "assets/bi-chevron-down-big.svg";
 import classNames from "classnames";
-import "./style.css";
+import "./title.css";
 
 export function Title() {
   const [open, setOpen] = useState(false);

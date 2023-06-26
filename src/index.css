@@ -6,6 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100%;
+  scrollbar-gutter: stable both-edges;
+  overflow: overlay;
 }
 
 code {

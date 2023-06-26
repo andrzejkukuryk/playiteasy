@@ -1,11 +1,10 @@
 import React from "react";
 import { ReactComponent as BiChevronUp } from "assets/bi-chevron-up.svg";
 import { ReactComponent as BiChevronDown } from "assets/bi-chevron-down.svg";
-import { Container, Row, Col } from "react-bootstrap";
 import { SortType, updateSortType } from "store/songsSlice";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "store/store";
-import "./style.css";
+import "./tableHead.css";
 import classNames from "classnames";
 
 interface TableHeadProps {

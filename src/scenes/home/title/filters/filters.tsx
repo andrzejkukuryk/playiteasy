@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { difficultyFiltersSelector } from "store/selectors";
 import { addDifficulty } from "store/songsSlice";
 import { Form } from "react-bootstrap";
-import { DifficultyStars } from "components/difficultyStars";
+import { DifficultyStars } from "components/difficultyStars/difficultyStars";
 
 export function Filters() {
   const checked = useSelector(difficultyFiltersSelector);

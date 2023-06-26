@@ -1,10 +1,10 @@
 import React from "react";
-import { SheetList } from "./sheetList";
-import { Header } from "./header";
+import { SheetList } from "./sheetList/sheetList";
+import { Header } from "./header/header";
 import { Container, Row } from "react-bootstrap";
 import { Footer } from "./footer/footer";
 import { Title } from "./title/title";
-import "./style.css";
+import "./home.css";
 
 export function Home() {
   return (

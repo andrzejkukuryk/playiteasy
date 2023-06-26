@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
-import { ListItem } from "./listItem";
+import { ListItem } from "./listItem/listItem";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSongs } from "store/songsSlice";
 import {
@@ -12,8 +12,8 @@ import {
 // import { uploadToFirebase } from "dummyData/songs";
 
 import { AppDispatch } from "store/store";
-import { TableHead } from "./tableHead";
-import { TablePagination } from "./tablePagination";
+import { TableHead } from "./tableHead/tableHead";
+import { TablePagination } from "./tablePagination/tablePagination";
 
 export function SheetList() {
   const [activePage, setActivePage] = useState(1);
