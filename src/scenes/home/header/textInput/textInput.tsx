@@ -3,7 +3,7 @@ import { Button, Form, InputGroup } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { updateSearchQuery } from "store/songsSlice";
 import { ReactComponent as BiSearch } from "assets/bi-search.svg";
-import "./style.css";
+import "./textInput.css";
 
 export function TextInput() {
   const [searchPhrase, setSearchPhrase] = useState("");
