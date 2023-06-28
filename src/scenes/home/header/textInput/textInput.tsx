@@ -29,7 +29,7 @@ export function TextInput() {
         <Button
           type="submit"
           variant="secondary"
-          className="bg-secondary border border-light-subtle border-start-0"
+          className="bg-secondary border border-light-subtle border-start-0 me-3 me-md-2"
         >
           <BiSearch />
         </Button>

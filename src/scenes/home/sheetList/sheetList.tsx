@@ -14,6 +14,7 @@ import {
 import { AppDispatch } from "store/store";
 import { TableHead } from "./tableHead/tableHead";
 import { TablePagination } from "./tablePagination/tablePagination";
+import "./sheetList.css";
 
 export function SheetList() {
   const [activePage, setActivePage] = useState(1);
@@ -49,7 +50,7 @@ export function SheetList() {
   };
 
   return (
-    <div>
+    <div className="p-0 p-sm-2">
       <Table>
         <thead className="table border">
           <tr>
@@ -77,7 +78,9 @@ export function SheetList() {
                 label="Level"
               />
             </th>
-            <th className="p-0 bg-black"></th>
+            <th className="p-0">
+              <div className="dummyPlug bg-black"></div>
+            </th>
           </tr>
         </thead>
         <tbody>{displayPage()}</tbody>

@@ -8,7 +8,7 @@ import "./home.css";
 
 export function Home() {
   return (
-    <Container>
+    <Container className="p-0 p-sm-2">
       <Row>
         <Header />
       </Row>
