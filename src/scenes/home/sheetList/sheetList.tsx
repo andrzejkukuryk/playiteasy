@@ -51,7 +51,7 @@ export function SheetList() {
 
   return (
     <div className="p-0 p-sm-2">
-      <Table>
+      <Table className="tableLayout">
         <thead className="table border">
           <tr>
             <th className="p-0">
