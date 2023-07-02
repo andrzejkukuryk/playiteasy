@@ -1,3 +1,7 @@
+.homeContainer {
+    min-height: calc(100vh - 136px);
+}
+
 .dimensions {
     max-width: 800px;
 }
