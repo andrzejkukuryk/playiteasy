@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Pagination } from "react-bootstrap";
+import { clearExpendedRecords } from "store/songsSlice";
+import { useDispatch } from "react-redux";
 
 interface TablePaginationProps {
   numberOfPages: number;
@@ -12,6 +14,13 @@ export function TablePagination({
   activePage,
   setActivePage,
 }: TablePaginationProps) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(clearExpendedRecords());
+    console.log("hop");
+  }, [activePage]);
+
   const handleClickPrev = () => {
     if (activePage > 1) {
       setActivePage(activePage - 1);

@@ -60,6 +60,9 @@ export const songsSlice = createSlice({
         state.expendedRecords.push(action.payload);
       }
     },
+    clearExpendedRecords: (state) => {
+      state.expendedRecords = [];
+    },
   },
   extraReducers(builder) {
     builder
@@ -90,6 +93,7 @@ export const {
   updateSortType,
   addDifficulty,
   updateExpendedRecords,
+  clearExpendedRecords,
 } = songsSlice.actions;
 
 export default songsSlice.reducer;
