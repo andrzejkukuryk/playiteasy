@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/playiteasy/static/css/main.515fa556.css",
+    "main.js": "/playiteasy/static/js/main.fbb1b0fc.js",
+    "static/js/787.0a8ffd00.chunk.js": "/playiteasy/static/js/787.0a8ffd00.chunk.js",
+    "static/media/logoGuitarHead.png": "/playiteasy/static/media/logoGuitarHead.f5b11fa900fe1dc6153f.png",
+    "index.html": "/playiteasy/index.html",
+    "static/media/bi-youtube.svg": "/playiteasy/static/media/bi-youtube.c88f0b93e806c6e5cf0bd8923cd9933d.svg",
+    "static/media/bi-youtube-small.svg": "/playiteasy/static/media/bi-youtube-small.1335089ef8aaa726912f3bdb26301d5d.svg",
+    "static/media/bi-star.svg": "/playiteasy/static/media/bi-star.a1b2643501ed4653b75930ce5675a886.svg",
+    "static/media/bi-facebook.svg": "/playiteasy/static/media/bi-facebook.3757e412c7bce990f7947e5e68a87321.svg",
+    "static/media/bi-dropbox.svg": "/playiteasy/static/media/bi-dropbox.d4ee3ae4b77b5b7030eb56962189c92e.svg",
+    "static/media/bi-star-fill.svg": "/playiteasy/static/media/bi-star-fill.c9162235df73366f59f02ed81bf7edc5.svg",
+    "static/media/bi-envelope.svg": "/playiteasy/static/media/bi-envelope.ad0a01806ebc7cda690523983609a32c.svg",
+    "static/media/bi-search.svg": "/playiteasy/static/media/bi-search.ab75a87791f7c9cf0bc96ab740477880.svg",
+    "static/media/bi-chevron-down-big.svg": "/playiteasy/static/media/bi-chevron-down-big.6034df27d0dfeb8de3a72dcf81c16615.svg",
+    "static/media/bi-chevron-down.svg": "/playiteasy/static/media/bi-chevron-down.5c63752ff314159a6b838bcad9416d3f.svg",
+    "static/media/bi-chevron-up.svg": "/playiteasy/static/media/bi-chevron-up.28b691634c67ca0355cd8bf6007b26cd.svg",
+    "main.515fa556.css.map": "/playiteasy/static/css/main.515fa556.css.map",
+    "main.fbb1b0fc.js.map": "/playiteasy/static/js/main.fbb1b0fc.js.map",
+    "787.0a8ffd00.chunk.js.map": "/playiteasy/static/js/787.0a8ffd00.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.515fa556.css",
+    "static/js/main.fbb1b0fc.js"
+  ]
+}
