@@ -18,7 +18,6 @@ export function TablePagination({
 
   useEffect(() => {
     dispatch(clearExpendedRecords());
-    console.log("hop");
   }, [activePage]);
 
   const handleClickPrev = () => {
