@@ -34,7 +34,7 @@ export function TableHead({
     activeSort: activeSortType === lowerButton,
   });
   return (
-    <div className="gridContainer">
+    <div className="gridContainer bg-black">
       <div>
         <button
           type="button"

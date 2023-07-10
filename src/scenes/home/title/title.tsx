@@ -22,7 +22,8 @@ export function Title() {
     <Container className="mt-4 mb-3">
       <Row>
         <Col xs={5}>
-          <h3>List of songs</h3>
+          <h4 className="d-sm-none">List of songs</h4>
+          <h3 className="d-none d-sm-inline">List of songs</h3>
         </Col>
         <Col className="d-flex justify-content-end">
           <Button

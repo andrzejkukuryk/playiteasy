@@ -31,9 +31,17 @@ export function ListItem({ number, song }: ListItemProps) {
 
   const collapseTarget = `#${collapseId}`;
 
-  const trClass = classNames({
+  const trCollapseClass = classNames({
     "collapse show": expendedRecords.includes(collapseId),
     collapse: !expendedRecords.includes(collapseId),
+  });
+
+  const tdClass = classNames({
+    hideBottomBorder: expendedRecords.includes(collapseId),
+  });
+
+  const lastTdClass = classNames("ps-0", {
+    hideBottomBorder: expendedRecords.includes(collapseId),
   });
 
   return (
@@ -46,19 +54,19 @@ export function ListItem({ number, song }: ListItemProps) {
         itemType="button"
         onClick={() => handleClick(collapseId)}
       >
-        <td>{song.artist}</td>
-        <td>{song.title}</td>
-        <td>
+        <td className={tdClass}>{song.artist}</td>
+        <td className={tdClass}>{song.title}</td>
+        <td className={tdClass}>
           <DifficultyStars difficulty={song.difficulty} />
         </td>
-        <td>
+        <td className={lastTdClass}>
           <CollapseButton collapseId={collapseId} letRotate={letRotate} />
         </td>
       </tr>
-      <tr className={trClass} id={collapseId}>
+      <tr className={trCollapseClass} id={collapseId}>
         <td></td>
         <td colSpan={3}>
-          <div className="d-flex justify-content-between">
+          <div className="d-flex justify-content-between mb-3">
             <MediaLink link={song.notes} linkLabel="notes" />
             <MediaLink link={song.tabs} linkLabel="tabs" />
             <MediaLink link={song.video} linkLabel="video" />
