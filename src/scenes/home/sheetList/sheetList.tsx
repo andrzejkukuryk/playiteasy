@@ -15,6 +15,7 @@ import { AppDispatch } from "store/store";
 import { TableHead } from "./tableHead/tableHead";
 import { TablePagination } from "./tablePagination/tablePagination";
 import "./sheetList.css";
+import { useUrlParams } from "hooks/useUrlParams";
 
 export function SheetList() {
   const [activePage, setActivePage] = useState(1);
@@ -22,6 +23,8 @@ export function SheetList() {
   const status = useSelector(statusSelector);
   const activeSortType = useSelector(sortTypeSelector);
   const dispatch = useDispatch<AppDispatch>();
+
+  useUrlParams();
 
   useEffect(() => {
     //uncomment when new songs added

@@ -40,6 +40,9 @@ export const songsSlice = createSlice({
     updateSortType: (state, action: PayloadAction<SortType>) => {
       state.sortType = action.payload;
     },
+    updateFilterDifficulty: (state, action: PayloadAction<number[]>) => {
+      state.filterDifficulty = action.payload;
+    },
     addDifficulty: (state, action: PayloadAction<number>) => {
       if (state.filterDifficulty.includes(action.payload)) {
         state.filterDifficulty = state.filterDifficulty.filter(
@@ -91,6 +94,7 @@ export const fetchSongs = createAsyncThunk("songs/fetchSongs", async () => {
 export const {
   updateSearchQuery,
   updateSortType,
+  updateFilterDifficulty,
   addDifficulty,
   updateExpendedRecords,
   clearExpendedRecords,
