@@ -119,3 +119,7 @@ export const sortTypeSelector = (state: RootState) => {
 export const statusSelector = (state: RootState) => {
   return state.songs.status;
 };
+
+export const searchQuerySelector = (state: RootState) => {
+  return state.songs.searchQuery;
+};
