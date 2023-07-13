@@ -5,7 +5,11 @@ import {
   updateFilterDifficulty,
   updateSortType,
 } from "store/songsSlice";
-import { searchQuerySelector } from "store/selectors";
+import {
+  searchQuerySelector,
+  difficultyFiltersSelector,
+  sortTypeSelector,
+} from "store/selectors";
 import { useSearchParams } from "react-router-dom";
 import { SortType } from "store/songsSlice";
 
@@ -14,12 +18,14 @@ export function useUrlParams() {
   // odczytuje parametry z url ?search=to&filter=1,2,3,4,5&sort=sortArtistAZ
   // zmienia stan store
   const searchQuery = useSelector(searchQuerySelector);
+  const difficultyFilter = useSelector(difficultyFiltersSelector).toString();
+  const sortType = useSelector(sortTypeSelector);
   useEffect(() => {
     updateStore();
   }, []);
   useEffect(() => {
     setQueryParams();
-  }, [searchQuery]);
+  }, [searchQuery, difficultyFilter, sortType]);
 
   const fullUrl = document.URL;
   const url = new URL(fullUrl);
@@ -51,6 +57,11 @@ export function useUrlParams() {
   const [params, setParams] = useSearchParams();
 
   const setQueryParams = () => {
-    setParams({ search: searchQuery });
+    setParams({
+      search: searchQuery,
+      filter: difficultyFilter,
+      sort: sortType,
+    });
   };
+  console.log(difficultyFilter.toString());
 }
