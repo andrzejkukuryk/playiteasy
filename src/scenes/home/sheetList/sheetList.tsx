@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { ListItem } from "./listItem/listItem";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,6 +7,7 @@ import {
   filteredSongsSelector,
   sortTypeSelector,
   statusSelector,
+  activePageSelector,
 } from "store/selectors";
 //uncomment when new songs added
 // import { uploadToFirebase } from "dummyData/songs";
@@ -18,7 +19,7 @@ import "./sheetList.css";
 import { useUrlParams } from "hooks/useUrlParams";
 
 export function SheetList() {
-  const [activePage, setActivePage] = useState(1);
+  const activePage = useSelector(activePageSelector);
   const songs = useSelector(filteredSongsSelector);
   const status = useSelector(statusSelector);
   const activeSortType = useSelector(sortTypeSelector);
@@ -33,10 +34,6 @@ export function SheetList() {
       dispatch(fetchSongs());
     }
   }, []);
-
-  useEffect(() => {
-    setActivePage(1);
-  }, [songs.length]);
 
   const createList = () => {
     return songs.map((song, index) => (
@@ -93,13 +90,7 @@ export function SheetList() {
           </tr>
         )}
       </Table>
-      {numberOfPages > 1 && (
-        <TablePagination
-          numberOfPages={numberOfPages}
-          activePage={activePage}
-          setActivePage={setActivePage}
-        />
-      )}
+      {numberOfPages > 1 && <TablePagination numberOfPages={numberOfPages} />}
     </div>
   );
 }

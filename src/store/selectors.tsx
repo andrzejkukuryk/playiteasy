@@ -123,3 +123,7 @@ export const statusSelector = (state: RootState) => {
 export const searchQuerySelector = (state: RootState) => {
   return state.songs.searchQuery;
 };
+
+export const activePageSelector = (state: RootState) => {
+  return state.controls.activePage;
+};

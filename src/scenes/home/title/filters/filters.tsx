@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { difficultyFiltersSelector } from "store/selectors";
 import { addDifficulty } from "store/songsSlice";
+import { updateActivePage } from "store/controlsSlice";
 import { Form } from "react-bootstrap";
 import { DifficultyStars } from "components/difficultyStars/difficultyStars";
 
@@ -18,6 +19,7 @@ export function Filters() {
 
   const handleChange = (diff: number) => {
     dispatch(addDifficulty(diff));
+    dispatch(updateActivePage(1));
   };
 
   return (
