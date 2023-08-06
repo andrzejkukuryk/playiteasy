@@ -11,6 +11,7 @@ import {
   difficultyFiltersSelector,
   sortTypeSelector,
   activePageSelector,
+  numberOfPagesSelector,
 } from "store/selectors";
 import { useSearchParams } from "react-router-dom";
 import { SortType } from "store/songsSlice";
@@ -20,6 +21,7 @@ export function useUrlParams() {
   const difficultyFilter = useSelector(difficultyFiltersSelector).toString();
   const sortType = useSelector(sortTypeSelector);
   const activePage = useSelector(activePageSelector).toString();
+  const numberOfPages = useSelector(numberOfPagesSelector);
   useEffect(() => {
     updateStore();
   }, []);
@@ -55,6 +57,18 @@ export function useUrlParams() {
     }
     if (typeof page === "number") {
       dispatch(updateActivePage(page));
+      // pageCheck();
+    }
+  };
+
+  console.log("active: ", activePage, "numberOfPages: ", numberOfPages);
+  const pageCheck = () => {
+    if (numberOfPages > 0) {
+      if (page <= numberOfPages) {
+        dispatch(updateActivePage(page));
+      } else {
+        dispatch(updateActivePage(numberOfPages));
+      }
     }
   };
 

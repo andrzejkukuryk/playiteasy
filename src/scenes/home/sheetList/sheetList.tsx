@@ -3,11 +3,13 @@ import { Table } from "react-bootstrap";
 import { ListItem } from "./listItem/listItem";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSongs } from "store/songsSlice";
+import { updateNumberOfPages } from "store/controlsSlice";
 import {
   filteredSongsSelector,
   sortTypeSelector,
   statusSelector,
   activePageSelector,
+  numberOfPagesSelector,
 } from "store/selectors";
 //uncomment when new songs added
 // import { uploadToFirebase } from "dummyData/songs";
@@ -20,6 +22,7 @@ import { useUrlParams } from "hooks/useUrlParams";
 
 export function SheetList() {
   const activePage = useSelector(activePageSelector);
+  const numberOfPages = useSelector(numberOfPagesSelector);
   const songs = useSelector(filteredSongsSelector);
   const status = useSelector(statusSelector);
   const activeSortType = useSelector(sortTypeSelector);
@@ -41,7 +44,17 @@ export function SheetList() {
     ));
   };
 
-  const numberOfPages = Math.ceil(songs.length / 10);
+  const countNumberOfPages = () => {
+    if (songs.length > 0) {
+      const newNumberOfPages = Math.ceil(songs.length / 10);
+      console.log(newNumberOfPages);
+      dispatch(updateNumberOfPages(newNumberOfPages));
+    }
+  };
+
+  useEffect(() => countNumberOfPages(), [songs]);
+
+  // const numberOfPages = Math.ceil(songs.length / 10);
   const indexOfLastItem = activePage * 10;
   const indexOfFirstItem = indexOfLastItem - 10;
 
@@ -90,7 +103,7 @@ export function SheetList() {
           </tr>
         )}
       </Table>
-      {numberOfPages > 1 && <TablePagination numberOfPages={numberOfPages} />}
+      {numberOfPages > 1 && <TablePagination />}
     </div>
   );
 }

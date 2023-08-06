@@ -2,16 +2,13 @@ import React, { useEffect } from "react";
 import { Pagination } from "react-bootstrap";
 import { clearExpendedRecords } from "store/songsSlice";
 import { updateActivePage } from "store/controlsSlice";
-import { activePageSelector } from "store/selectors";
+import { activePageSelector, numberOfPagesSelector } from "store/selectors";
 import { useDispatch, useSelector } from "react-redux";
 
-interface TablePaginationProps {
-  numberOfPages: number;
-}
-
-export function TablePagination({ numberOfPages }: TablePaginationProps) {
+export function TablePagination() {
   const dispatch = useDispatch();
   const activePage = useSelector(activePageSelector);
+  const numberOfPages = useSelector(numberOfPagesSelector);
 
   useEffect(() => {
     dispatch(clearExpendedRecords());

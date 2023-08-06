@@ -127,3 +127,7 @@ export const searchQuerySelector = (state: RootState) => {
 export const activePageSelector = (state: RootState) => {
   return state.controls.activePage;
 };
+
+export const numberOfPagesSelector = (state: RootState) => {
+  return state.controls.numberOfPages;
+};
