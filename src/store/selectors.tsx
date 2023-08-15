@@ -129,5 +129,5 @@ export const activePageSelector = (state: RootState) => {
 };
 
 export const numberOfPagesSelector = (state: RootState) => {
-  return state.controls.numberOfPages;
+  return Math.ceil(state.songs.allSongs.length / 10);
 };

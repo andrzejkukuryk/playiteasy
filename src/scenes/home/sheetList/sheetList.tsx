@@ -52,7 +52,11 @@ export function SheetList() {
     }
   };
 
-  useEffect(() => countNumberOfPages(), [songs]);
+  // useEffect(() => {
+  //   if (status === "completed") {
+  //     countNumberOfPages();
+  //   }
+  // }, [songs]);
 
   // const numberOfPages = Math.ceil(songs.length / 10);
   const indexOfLastItem = activePage * 10;

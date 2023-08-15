@@ -12,6 +12,7 @@ import {
   sortTypeSelector,
   activePageSelector,
   numberOfPagesSelector,
+  statusSelector,
 } from "store/selectors";
 import { useSearchParams } from "react-router-dom";
 import { SortType } from "store/songsSlice";
@@ -22,9 +23,13 @@ export function useUrlParams() {
   const sortType = useSelector(sortTypeSelector);
   const activePage = useSelector(activePageSelector).toString();
   const numberOfPages = useSelector(numberOfPagesSelector);
+  const status = useSelector(statusSelector);
   useEffect(() => {
-    updateStore();
-  }, []);
+    console.log(status);
+    if (status === "completed") {
+      updateStore();
+    }
+  }, [status]);
   useEffect(() => {
     setQueryParams();
   }, [searchQuery, difficultyFilter, sortType, activePage]);
@@ -36,6 +41,7 @@ export function useUrlParams() {
   const sort = searchParams.get("sort");
   const page = Number(searchParams.get("page"));
 
+  console.log(searchParams.get("page"));
   const filter = searchParams
     .get("filter")
     ?.split(",")
@@ -52,17 +58,25 @@ export function useUrlParams() {
       dispatch(updateFilterDifficulty(filter));
     }
     if (typeof sort === "string") {
+      //TODO: typeguard
       //@ts-ignore
       dispatch(updateSortType(sort));
     }
     if (typeof page === "number") {
-      dispatch(updateActivePage(page));
-      // pageCheck();
+      // dispatch(updateActivePage(page));
+      pageCheck();
     }
   };
 
-  console.log("active: ", activePage, "numberOfPages: ", numberOfPages);
   const pageCheck = () => {
+    console.log(
+      "numberOfPages: ",
+      numberOfPages,
+      "page: ",
+      page,
+      "status: ",
+      status
+    );
     if (numberOfPages > 0) {
       if (page <= numberOfPages) {
         dispatch(updateActivePage(page));
