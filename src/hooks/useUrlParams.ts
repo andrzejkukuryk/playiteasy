@@ -89,11 +89,13 @@ export function useUrlParams() {
   const [params, setParams] = useSearchParams();
 
   const setQueryParams = () => {
-    setParams({
-      search: searchQuery,
-      filter: difficultyFilter,
-      sort: sortType,
-      page: activePage,
-    });
+    if (status === "completed") {
+      setParams({
+        search: searchQuery,
+        filter: difficultyFilter,
+        sort: sortType,
+        page: activePage,
+      });
+    }
   };
 }

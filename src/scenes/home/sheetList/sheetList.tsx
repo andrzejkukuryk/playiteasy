@@ -44,21 +44,6 @@ export function SheetList() {
     ));
   };
 
-  const countNumberOfPages = () => {
-    if (songs.length > 0) {
-      const newNumberOfPages = Math.ceil(songs.length / 10);
-      console.log(newNumberOfPages);
-      dispatch(updateNumberOfPages(newNumberOfPages));
-    }
-  };
-
-  // useEffect(() => {
-  //   if (status === "completed") {
-  //     countNumberOfPages();
-  //   }
-  // }, [songs]);
-
-  // const numberOfPages = Math.ceil(songs.length / 10);
   const indexOfLastItem = activePage * 10;
   const indexOfFirstItem = indexOfLastItem - 10;
 
