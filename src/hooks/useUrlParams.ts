@@ -25,7 +25,6 @@ export function useUrlParams() {
   const numberOfPages = useSelector(numberOfPagesSelector);
   const status = useSelector(statusSelector);
   useEffect(() => {
-    console.log(status);
     if (status === "completed") {
       updateStore();
     }
@@ -41,7 +40,6 @@ export function useUrlParams() {
   const sort = searchParams.get("sort");
   const page = Number(searchParams.get("page"));
 
-  console.log(searchParams.get("page"));
   const filter = searchParams
     .get("filter")
     ?.split(",")
@@ -63,23 +61,18 @@ export function useUrlParams() {
       dispatch(updateSortType(sort));
     }
     if (typeof page === "number") {
-      // dispatch(updateActivePage(page));
       pageCheck();
     }
   };
 
   const pageCheck = () => {
-    console.log(
-      "numberOfPages: ",
-      numberOfPages,
-      "page: ",
-      page,
-      "status: ",
-      status
-    );
     if (numberOfPages > 0) {
       if (page <= numberOfPages) {
-        dispatch(updateActivePage(page));
+        if (page > 0) {
+          dispatch(updateActivePage(page));
+        } else {
+          dispatch(updateActivePage(1));
+        }
       } else {
         dispatch(updateActivePage(numberOfPages));
       }
