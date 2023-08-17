@@ -56,12 +56,30 @@ export function useUrlParams() {
       dispatch(updateFilterDifficulty(filter));
     }
     if (typeof sort === "string") {
-      //TODO: typeguard
-      //@ts-ignore
-      dispatch(updateSortType(sort));
+      if (isSortType(sort)) {
+        //@ts-ignore
+        dispatch(updateSortType(sort));
+      } else {
+        dispatch(updateSortType("sortArtistAZ"));
+      }
     }
     if (typeof page === "number") {
       pageCheck();
+    }
+  };
+
+  const isSortType = (value: string) => {
+    if (
+      value === "sortArtistAZ" ||
+      value === "sortArtistZA" ||
+      value === "sortTitleAZ" ||
+      value === "sortTitleZA" ||
+      value === "sortDifficulty15" ||
+      value === "sortDifficulty51"
+    ) {
+      return true;
+    } else {
+      return false;
     }
   };
 
