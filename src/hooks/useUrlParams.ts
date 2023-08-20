@@ -57,8 +57,7 @@ export function useUrlParams() {
     }
     if (typeof sort === "string") {
       if (isSortType(sort)) {
-        //@ts-ignore
-        dispatch(updateSortType(sort));
+        dispatch(updateSortType(sort as SortType));
       } else {
         dispatch(updateSortType("sortArtistAZ"));
       }
