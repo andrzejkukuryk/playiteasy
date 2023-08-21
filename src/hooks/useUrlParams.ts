@@ -16,6 +16,7 @@ import {
 } from "store/selectors";
 import { useSearchParams } from "react-router-dom";
 import { SortType } from "store/songsSlice";
+import { Value } from "sass";
 
 export function useUrlParams() {
   const searchQuery = useSelector(searchQuerySelector);
@@ -57,7 +58,7 @@ export function useUrlParams() {
     }
     if (typeof sort === "string") {
       if (isSortType(sort)) {
-        dispatch(updateSortType(sort as SortType));
+        dispatch(updateSortType(sort));
       } else {
         dispatch(updateSortType("sortArtistAZ"));
       }
@@ -67,7 +68,7 @@ export function useUrlParams() {
     }
   };
 
-  const isSortType = (value: string) => {
+  const isSortType = (value: string): value is SortType => {
     if (
       value === "sortArtistAZ" ||
       value === "sortArtistZA" ||
