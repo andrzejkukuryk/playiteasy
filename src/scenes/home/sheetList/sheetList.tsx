@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { ListItem } from "./listItem/listItem";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSongs } from "store/songsSlice";
+import { updateNumberOfPages } from "store/controlsSlice";
 import {
   filteredSongsSelector,
   sortTypeSelector,
   statusSelector,
+  activePageSelector,
+  numberOfPagesSelector,
 } from "store/selectors";
 //uncomment when new songs added
 // import { uploadToFirebase } from "dummyData/songs";
@@ -15,13 +18,17 @@ import { AppDispatch } from "store/store";
 import { TableHead } from "./tableHead/tableHead";
 import { TablePagination } from "./tablePagination/tablePagination";
 import "./sheetList.css";
+import { useUrlParams } from "hooks/useUrlParams";
 
 export function SheetList() {
-  const [activePage, setActivePage] = useState(1);
+  const activePage = useSelector(activePageSelector);
+  const numberOfPages = useSelector(numberOfPagesSelector);
   const songs = useSelector(filteredSongsSelector);
   const status = useSelector(statusSelector);
   const activeSortType = useSelector(sortTypeSelector);
   const dispatch = useDispatch<AppDispatch>();
+
+  useUrlParams();
 
   useEffect(() => {
     //uncomment when new songs added
@@ -31,17 +38,12 @@ export function SheetList() {
     }
   }, []);
 
-  useEffect(() => {
-    setActivePage(1);
-  }, [songs.length]);
-
   const createList = () => {
     return songs.map((song, index) => (
       <ListItem number={index + 1} song={song} key={`song${index}`} />
     ));
   };
 
-  const numberOfPages = Math.ceil(songs.length / 10);
   const indexOfLastItem = activePage * 10;
   const indexOfFirstItem = indexOfLastItem - 10;
 
@@ -90,13 +92,7 @@ export function SheetList() {
           </tr>
         )}
       </Table>
-      {numberOfPages > 1 && (
-        <TablePagination
-          numberOfPages={numberOfPages}
-          activePage={activePage}
-          setActivePage={setActivePage}
-        />
-      )}
+      {numberOfPages > 1 && <TablePagination />}
     </div>
   );
 }

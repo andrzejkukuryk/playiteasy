@@ -119,3 +119,15 @@ export const sortTypeSelector = (state: RootState) => {
 export const statusSelector = (state: RootState) => {
   return state.songs.status;
 };
+
+export const searchQuerySelector = (state: RootState) => {
+  return state.songs.searchQuery;
+};
+
+export const activePageSelector = (state: RootState) => {
+  return state.controls.activePage;
+};
+
+export const numberOfPagesSelector = (state: RootState) => {
+  return Math.ceil(filteredSongsSelector(state).length / 10);
+};

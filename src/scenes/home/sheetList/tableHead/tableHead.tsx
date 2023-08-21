@@ -2,6 +2,7 @@ import React from "react";
 import { ReactComponent as BiChevronUp } from "assets/bi-chevron-up.svg";
 import { ReactComponent as BiChevronDown } from "assets/bi-chevron-down.svg";
 import { SortType, updateSortType } from "store/songsSlice";
+import { updateActivePage } from "store/controlsSlice";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "store/store";
 import "./tableHead.css";
@@ -23,9 +24,11 @@ export function TableHead({
   const dispatch = useDispatch<AppDispatch>();
   const handleUpperClick = () => {
     dispatch(updateSortType(upperButton));
+    dispatch(updateActivePage(1));
   };
   const handleLowerClick = () => {
     dispatch(updateSortType(lowerButton));
+    dispatch(updateActivePage(1));
   };
   const upperButtonClass = classNames("sortButton", {
     activeSort: activeSortType === upperButton,

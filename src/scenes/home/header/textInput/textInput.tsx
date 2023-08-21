@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { updateSearchQuery } from "store/songsSlice";
+import { updateActivePage } from "store/controlsSlice";
 import { ReactComponent as BiSearch } from "assets/bi-search.svg";
 import "./textInput.css";
 
@@ -12,6 +13,7 @@ export function TextInput() {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     dispatch(updateSearchQuery(searchPhrase));
+    dispatch(updateActivePage(1));
   };
   return (
     <Form onSubmit={handleSubmit}>

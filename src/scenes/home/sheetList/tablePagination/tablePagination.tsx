@@ -1,20 +1,14 @@
 import React, { useEffect } from "react";
 import { Pagination } from "react-bootstrap";
 import { clearExpendedRecords } from "store/songsSlice";
-import { useDispatch } from "react-redux";
+import { updateActivePage } from "store/controlsSlice";
+import { activePageSelector, numberOfPagesSelector } from "store/selectors";
+import { useDispatch, useSelector } from "react-redux";
 
-interface TablePaginationProps {
-  numberOfPages: number;
-  activePage: number;
-  setActivePage: React.Dispatch<React.SetStateAction<number>>;
-}
-
-export function TablePagination({
-  numberOfPages,
-  activePage,
-  setActivePage,
-}: TablePaginationProps) {
+export function TablePagination() {
   const dispatch = useDispatch();
+  const activePage = useSelector(activePageSelector);
+  const numberOfPages = useSelector(numberOfPagesSelector);
 
   useEffect(() => {
     dispatch(clearExpendedRecords());
@@ -22,12 +16,12 @@ export function TablePagination({
 
   const handleClickPrev = () => {
     if (activePage > 1) {
-      setActivePage(activePage - 1);
+      dispatch(updateActivePage(activePage - 1));
     }
   };
   const handleClickNext = () => {
     if (activePage < numberOfPages) {
-      setActivePage(activePage + 1);
+      dispatch(updateActivePage(activePage + 1));
     }
   };
 
@@ -37,7 +31,7 @@ export function TablePagination({
     <Pagination.Item
       key={`pagination${element}`}
       active={element === activePage}
-      onClick={() => setActivePage(element)}
+      onClick={() => dispatch(updateActivePage(element))}
     >
       {element}
     </Pagination.Item>
