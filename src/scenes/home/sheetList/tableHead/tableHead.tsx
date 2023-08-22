@@ -41,6 +41,7 @@ export function TableHead({
       <div>
         <button
           type="button"
+          aria-label="sort descending"
           className={upperButtonClass}
           onClick={handleUpperClick}
         >
@@ -53,6 +54,7 @@ export function TableHead({
       <div>
         <button
           type="button"
+          aria-label="sort increasing"
           className={lowerButtonClass}
           onClick={handleLowerClick}
         >

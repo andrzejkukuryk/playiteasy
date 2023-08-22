@@ -12,6 +12,8 @@ export function SocialMedia() {
           <a
             href="https://www.youtube.com/channel/UCk0ZZKxEIJXH0oDWjnBt2Iw"
             target="_blank"
+            aria-label="check YouTube channel"
+            rel="noreferrer"
             className="d-inline-block m-3 mb-1 text-white-50"
           >
             <BiYoutubeSmall />
@@ -20,6 +22,8 @@ export function SocialMedia() {
           <a
             href="https://www.facebook.com/PlayItEasy"
             target="_blank"
+            aria-label="check fanpage on Facebook"
+            rel="noreferrer"
             className="d-inline-block m-3 mb-1 text-white-50"
           >
             <BiFacebook />
@@ -28,6 +32,8 @@ export function SocialMedia() {
           <a
             href="mailto: playiteasy2013@gmail.com"
             target="_blank"
+            aria-label="send email"
+            rel="noreferrer"
             className="d-inline-block m-3 mb-1 text-white-50"
           >
             <BiEnvelope />

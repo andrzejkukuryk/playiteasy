@@ -10,10 +10,10 @@ export function Header() {
     <Container className="bg-black">
       <Row>
         <Col xs={3} md={4} lg={6} xl={7}>
-          <img src={logo} className="my-3 headerLogo" />
+          <img src={logo} className="my-3 headerLogo" alt="logo" />
         </Col>
         <Col md={1} className="d-none d-md-block">
-          <img src={icons} />
+          <img src={icons} alt="" />
         </Col>
         <Col className="d-flex justify-content-end align-items-center">
           <TextInput />

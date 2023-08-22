@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./collapseButton.css";
 import { ReactComponent as BiChevronDownBig } from "assets/bi-chevron-down-big.svg";
 import { expendedRecordsSelector } from "store/selectors";
@@ -20,7 +20,7 @@ export function CollapseButton({ collapseId, letRotate }: CollapseButtonProps) {
   });
 
   return (
-    <button className={collapseButtonClass}>
+    <button className={collapseButtonClass} aria-label="expand">
       <BiChevronDownBig />
     </button>
   );

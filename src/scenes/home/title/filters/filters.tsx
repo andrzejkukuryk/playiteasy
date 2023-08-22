@@ -19,7 +19,7 @@ export function Filters() {
 
   const handleChange = (diff: number) => {
     dispatch(addDifficulty(diff));
-    // dispatch(updateActivePage(1));
+    dispatch(updateActivePage(1));
   };
 
   return (

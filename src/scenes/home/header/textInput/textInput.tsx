@@ -30,6 +30,7 @@ export function TextInput() {
         />
         <Button
           type="submit"
+          aria-label="search"
           variant="secondary"
           className="bg-secondary border border-light-subtle border-start-0 me-3 me-md-2"
         >
