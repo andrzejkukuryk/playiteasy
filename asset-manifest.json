@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/playiteasy/static/css/main.d4288307.css",
-    "main.js": "/playiteasy/static/js/main.01eae197.js",
+    "main.js": "/playiteasy/static/js/main.23b6e0c6.js",
     "static/js/787.0a8ffd00.chunk.js": "/playiteasy/static/js/787.0a8ffd00.chunk.js",
-    "static/media/logoGuitarHead.png": "/playiteasy/static/media/logoGuitarHead.f5b11fa900fe1dc6153f.png",
+    "static/media/logoGuitarHead.webp": "/playiteasy/static/media/logoGuitarHead.5b6968bdee38d5d2a193.webp",
     "index.html": "/playiteasy/index.html",
     "static/media/bi-youtube.svg": "/playiteasy/static/media/bi-youtube.c88f0b93e806c6e5cf0bd8923cd9933d.svg",
     "static/media/bi-youtube-small.svg": "/playiteasy/static/media/bi-youtube-small.1335089ef8aaa726912f3bdb26301d5d.svg",
@@ -17,11 +17,11 @@
     "static/media/bi-chevron-down.svg": "/playiteasy/static/media/bi-chevron-down.5c63752ff314159a6b838bcad9416d3f.svg",
     "static/media/bi-chevron-up.svg": "/playiteasy/static/media/bi-chevron-up.28b691634c67ca0355cd8bf6007b26cd.svg",
     "main.d4288307.css.map": "/playiteasy/static/css/main.d4288307.css.map",
-    "main.01eae197.js.map": "/playiteasy/static/js/main.01eae197.js.map",
+    "main.23b6e0c6.js.map": "/playiteasy/static/js/main.23b6e0c6.js.map",
     "787.0a8ffd00.chunk.js.map": "/playiteasy/static/js/787.0a8ffd00.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d4288307.css",
-    "static/js/main.01eae197.js"
+    "static/js/main.23b6e0c6.js"
   ]
 }
