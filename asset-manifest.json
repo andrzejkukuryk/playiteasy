@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/playiteasy/static/css/main.d4288307.css",
+    "main.css": "/playiteasy/static/css/main.ef6c547a.css",
     "main.js": "/playiteasy/static/js/main.23b6e0c6.js",
     "static/js/787.0a8ffd00.chunk.js": "/playiteasy/static/js/787.0a8ffd00.chunk.js",
     "static/media/logoGuitarHead.webp": "/playiteasy/static/media/logoGuitarHead.5b6968bdee38d5d2a193.webp",
@@ -16,12 +16,12 @@
     "static/media/bi-chevron-down-big.svg": "/playiteasy/static/media/bi-chevron-down-big.6034df27d0dfeb8de3a72dcf81c16615.svg",
     "static/media/bi-chevron-down.svg": "/playiteasy/static/media/bi-chevron-down.5c63752ff314159a6b838bcad9416d3f.svg",
     "static/media/bi-chevron-up.svg": "/playiteasy/static/media/bi-chevron-up.28b691634c67ca0355cd8bf6007b26cd.svg",
-    "main.d4288307.css.map": "/playiteasy/static/css/main.d4288307.css.map",
+    "main.ef6c547a.css.map": "/playiteasy/static/css/main.ef6c547a.css.map",
     "main.23b6e0c6.js.map": "/playiteasy/static/js/main.23b6e0c6.js.map",
     "787.0a8ffd00.chunk.js.map": "/playiteasy/static/js/787.0a8ffd00.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d4288307.css",
+    "static/css/main.ef6c547a.css",
     "static/js/main.23b6e0c6.js"
   ]
 }
